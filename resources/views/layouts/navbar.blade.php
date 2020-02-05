@@ -5,34 +5,47 @@
         <a class="navbar-brand brand-logo-mini" href="{{ url('/') }}"><img src="{{ asset('images/logo.png') }}"
                 alt="logo" /></a>
     </div>
+
+    @php $is_guest = request()->segment(1) == 'tamu' @endphp
+
     <div class="navbar-menu-wrapper d-flex align-items-stretch">
         @auth
-        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-            <span class="mdi mdi-menu"></span>
-        </button>
+            @if (!$is_guest)
+                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                    <span class="mdi mdi-menu"></span>
+                </button>
+            @endif
         @endauth
-        <div class="search-field d-none d-md-block">
-            <form class="d-flex align-items-center h-100" action="#">
-                <div class="input-group">
-                    <div class="input-group-prepend bg-transparent">
-                        <i class="input-group-text border-0 mdi mdi-magnify"></i>
+        @if ($is_guest)
+            <div class="search-field d-none d-md-block">
+                <form class="d-flex align-items-center h-100" action="#">
+                    <div class="input-group">
+                        <div class="input-group-prepend bg-transparent">
+                            <i class="input-group-text border-0 mdi mdi-magnify"></i>
+                        </div>
+                        <input type="text" class="form-control bg-transparent border-0" placeholder="Cari peta lokasi">
                     </div>
-                    <input type="text" class="form-control bg-transparent border-0" placeholder="Cari peta lokasi">
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
+        @endif
         <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item d-none d-lg-block full-screen-link">
-                <a class="nav-link">
-                    <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
-                </a>
-            </li>
-            @auth
+            @if ($is_guest)
                 <li class="nav-item d-none d-lg-block full-screen-link">
-                    <a class="nav-link" href="{{ url('tamu') }}">
-                        <i class="mdi mdi-eye" id="fullscreen-button"></i> &nbsp;
+                    <a class="nav-link">
+                        <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
                     </a>
                 </li>
+            @endif
+
+            @auth
+                @if (!$is_guest)
+                    <li class="nav-item d-none d-lg-block">
+                        <a class="nav-link" href="{{ url('tamu') }}">
+                            <i class="mdi mdi-eye"></i> &nbsp;
+                        </a>
+                    </li>
+                @endif
+
                 <li class="nav-item nav-profile dropdown">
                     <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown"
                         aria-expanded="false">
