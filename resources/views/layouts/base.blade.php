@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('theme/vendors/mdi/css/materialdesignicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('theme/vendors/css/vendor.bundle.base.css') }}">
     <link rel="stylesheet" href="{{ asset('theme/css/style.css?ver='.time()) }}">
+    @stack('styles')
 </head>
 
 <body>
@@ -23,7 +24,7 @@
                 @include('layouts.sidebar')
             @endif
 
-            <div class="main-panel" {!! $is_guest ? 'style="width: 100%;"' : '' !!}>
+            <div class="main-panel" id="{!! $is_guest ? 'mapid' : '' !!}" {!! $is_guest ? 'style="width: 100%;"' : '' !!}>
                 <div class="content-wrapper">
                     @isset($title)
                         {{-- page title --}}
@@ -51,6 +52,12 @@
     <script src="{{ asset('theme/js/off-canvas.js') }}"></script>
     <script src="{{ asset('theme/js/hoverable-collapse.js') }}"></script>
     <script src="{{ asset('theme/js/misc.js') }}"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script src="{{ asset('js/js-autocomplete.min.js') }}"></script>
+  @stack('scripts')
 </body>
 
 </html>
