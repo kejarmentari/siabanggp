@@ -13,5 +13,9 @@ class DatabaseSeeder extends Seeder
     {
         factory(App\User::class, 1)->create();
         factory(App\Outlet::class, 30)->create();
+
+        $this->call(SelectionSeeder::class);
+        $this->call(SurveySeeder::class);
+        $this->call(SurveySelectionSeeder::class);
     }
 }
