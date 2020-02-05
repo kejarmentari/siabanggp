@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Siabang GP - Dinas Pekerjaan Umum Kota Balikpapan</title>
+    <title>SIABANG GP - Dinas Pekerjaan Umum Kota Balikpapan</title>
     <link rel="shortcut icon" href="{{ asset('images/logo.png') }}" />
     <link rel="stylesheet" href="{{ asset('theme/vendors/mdi/css/materialdesignicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('theme/vendors/css/vendor.bundle.base.css') }}">
