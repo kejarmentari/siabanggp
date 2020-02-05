@@ -16,6 +16,11 @@ class HomeController extends Controller
         return redirect('login');
     }
 
+    public function guest()
+    {
+        return view('guest.index');
+    }
+
     /**
      * Show the application dashboard.
      *

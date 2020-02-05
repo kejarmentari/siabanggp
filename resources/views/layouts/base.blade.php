@@ -18,19 +18,24 @@
 
         <div class="container-fluid page-body-wrapper">
             {{-- sidebar --}}
-            @include('layouts.sidebar')
+            @php $is_guest = request()->segment(1) == 'tamu' @endphp
+            @if (!$is_guest)
+                @include('layouts.sidebar')
+            @endif
 
-            <div class="main-panel">
+            <div class="main-panel" {!! $is_guest ? 'style="width: 100%;"' : '' !!}>
                 <div class="content-wrapper">
-                    {{-- page title --}}
-                    <div class="page-header">
-                        <h3 class="page-title">
-                            <span class="page-title-icon bg-gradient-primary text-white mr-2">
-                                <i class="mdi mdi-arrow-down"></i>
-                            </span>
-                            {{ $title ?? 'Dashboard' }}
-                        </h3>
-                    </div>
+                    @isset($title)
+                        {{-- page title --}}
+                        <div class="page-header">
+                            <h3 class="page-title">
+                                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                                    <i class="mdi mdi-arrow-down"></i>
+                                </span>
+                                {{ $title ?? 'Dashboard' }}
+                            </h3>
+                        </div>
+                    @endisset
 
                     {{-- main content --}}
                     @yield('content')

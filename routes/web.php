@@ -3,6 +3,7 @@
 Auth::routes();
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@dashboard')->name('dashboard');
+Route::get('/tamu', 'HomeController@guest')->name('guest');
 
 /*
  * Outlets Routes

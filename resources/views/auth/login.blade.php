@@ -42,7 +42,7 @@
                                 <div class="mt-3">
                                     <button class="btn btn-block btn-gradient-info btn-lg font-weight-medium auth-form-btn" type="submit">Login</button>
                                     <a class="btn btn-block btn-gradient-success btn-lg font-weight-medium auth-form-btn"
-                                        href="#">Masuk Sebagai Tamu</a>
+                                        href="{{ url('tamu') }}">Masuk Sebagai Tamu</a>
                                 </div>
                             </form>
                         </div>
