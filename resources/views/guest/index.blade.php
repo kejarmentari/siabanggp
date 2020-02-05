@@ -7,8 +7,9 @@
 @section('content')
     <h1>Guest</h1>
 
-    
+
     @include('guest.about-modal')
+    
     @push('scripts')
     <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
