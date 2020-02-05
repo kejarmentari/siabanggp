@@ -60,13 +60,13 @@
                 </li>
             @else
                 <li class="nav-item d-none d-lg-block full-screen-link">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#listBangunanModal">
                         <i class="mdi mdi-home-modern menu-icon" id="fullscreen-button"></i> &nbsp;
                         Daftar Gedung
                     </a>
                 </li>
                 <li class="nav-item d-none d-lg-block full-screen-link">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#aboutModal">
                         <i class="mdi mdi-comment-question-outline" id="fullscreen-button"></i> &nbsp;
                         Tentang
                     </a>
