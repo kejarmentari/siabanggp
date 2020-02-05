@@ -1,7 +1,7 @@
 <div class="modal fade"  id="listBangunanModal" tabindex="-1" role="dialog" aria-labelledby="listBangunanModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content p-4 " style="background:#fff">
-        <h3 class="modal-title text-center" id="listBangunanModalLabel">Daftar Bangunan</h3>
+        <h3 class="modal-title text-center" id="listBangunanModalLabel">Daftar Bangunan</h3>navba
         <div class="form-group mt-3">
             <input placeholder="Cari nama atau kode bangunan..." type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
