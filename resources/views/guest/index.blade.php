@@ -3,6 +3,24 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
     integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
     crossorigin=""/>
+    <style>
+        .list-card:hover h5, .list-card .card  {
+            transition: all ease-in-out .3s;
+        }
+        .list-card:hover {
+            text-decoration: none !important;
+        }
+        .list-card .card {
+            box-shadow: 6px 6px 10px rgba(0,0,0,.1);
+            border: 1px solid #f9f9f9;
+        }
+        .list-card:hover .card {
+            border-color: #198ae3;
+        }
+        .list-card:hover h5 {
+            color: #198ae3;
+        }
+    </style>
 @endpush
 @section('content')
     <h1>Guest</h1>
