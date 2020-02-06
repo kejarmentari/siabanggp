@@ -4,6 +4,24 @@
     integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
     crossorigin=""/>
     <style>
+        .autocomplete-selected {
+            background: #fff;
+            color: #000;
+        }
+        .autocomplete-suggestion {
+            color: #000;
+            cursor: pointer;
+            transition: .2s;
+        }
+        .autocomplete-suggestion:hover {
+            color: #198ae3;
+        }
+        .autocomplete-suggestions {
+            background: #fff;
+            border-radius: 5px;
+            padding: 5px 5px;
+            box-shadow: 0px 6px 12px rgba(0,0,0,.1);
+        }
         .list-card:hover h5, .list-card .card  {
             transition: all ease-in-out .3s;
         }
@@ -25,6 +43,7 @@
 @section('content')
     @include('guest.about-modal')
     @include('guest.list-modal')
+    
     @push('scripts')
     <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"

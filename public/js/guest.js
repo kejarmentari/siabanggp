@@ -33,7 +33,10 @@ $(function () {
         dataType: 'json',
         success: function (resp) {
             let surveyList = '';
+            let surveys = [];
+            let surveysData = [];
             for (let survey in resp.surveys) {
+                surveys[survey] = resp.surveys[survey]
                 surveyList += `
                     <a href="#" class="list-card" data-lat='${resp.surveys[survey].latitude}' data-long='${resp.surveys[survey].longitude}'>
                         <div class="card mb-1">
@@ -75,6 +78,17 @@ $(function () {
                             `)
                     .addTo(map);
             }
+            surveysData = $.map(surveys, function (gedung) { return { value: gedung['nama_gedung'], data: { lat: gedung['latitude'], long: gedung['longitude'] } }; });
+            $('#searchBangunan').devbridgeAutocomplete({
+                lookup: surveysData,
+                minChars: 1,
+                onSelect: function (suggestion) {
+                    $('#listBangunanModal').modal('hide');
+                    map.setView([parseFloat(suggestion.data.lat), parseFloat(suggestion.data.long)], 15);
+                    $('#searchBangunan').val('');
+                },
+                noSuggestionNotice: 'Sorry, no matching results',
+            });
             $('.result-container').html(surveyList)
         }
     })
@@ -86,6 +100,6 @@ $(function () {
         e.preventDefault();
         $('#listBangunanModal').modal('hide');
         map.setView([parseFloat($(this).data('lat')), parseFloat($(this).data('long'))], 15);
-        L.marker([parseFloat($(this).data('lat')), parseFloat($(this).data('long'))]).openPopup();
     })
+
 })

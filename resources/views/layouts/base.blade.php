@@ -56,7 +56,7 @@
     <script src="{{ asset('theme/js/hoverable-collapse.js') }}"></script>
     <script src="{{ asset('theme/js/misc.js') }}"></script>
     
-  <script src="{{ asset('js/js-autocomplete.min.js') }}"></script>
+  <script src="{{ asset('js/jquery.autocomplete.min.js') }}"></script>
   @stack('scripts')
 </body>
 
