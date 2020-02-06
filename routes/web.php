@@ -4,6 +4,7 @@ Auth::routes();
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@dashboard')->name('dashboard');
 Route::get('/tamu', 'HomeController@guest')->name('guest');
+Route::get('/survey', 'SurveysController@index')->name('survey');
 
 /*
  * Outlets Routes

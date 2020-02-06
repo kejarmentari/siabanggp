@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Survey;
+use App\Selection;
 
 class SurveysController extends Controller
 {
@@ -14,7 +15,8 @@ class SurveysController extends Controller
      */
     public function index()
     {
-        //
+        $selections = Selection::all();
+        return view('survey.index', compact('selections'));
     }
     /**
      * Get all data from database
