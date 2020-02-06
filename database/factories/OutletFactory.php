@@ -17,8 +17,6 @@ $factory->define(Outlet::class, function (Faker $faker) {
         'address'    => $faker->address,
         'latitude'   => $faker->latitude($minLatitude, $maxLatitude),
         'longitude'  => $faker->longitude($minLongitude, $maxLongitude),
-        'creator_id' => function () {
-            return factory(User::class)->create()->id;
-        },
+        'creator_id' => 1,
     ];
 });

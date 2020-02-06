@@ -30,7 +30,7 @@
                         {{-- page title --}}
                         <div class="page-header">
                             <h3 class="page-title">
-                                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                                <span class="page-title-icon bg-gradient-info text-white mr-2">
                                     <i class="mdi mdi-arrow-down"></i>
                                 </span>
                                 {{ $title ?? 'Dashboard' }}
