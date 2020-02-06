@@ -30,37 +30,56 @@
     <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
         integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
         crossorigin=""></script>
+    <script src="{{ asset('js/guest.js') }}"></script>
     <script>
-        var url = '{{url("images")}}/'
-        var greenIcon = L.icon({
-            iconUrl: url + 'marker-icon.png',
-            iconSize:     [25, 42], // size of the icon
-            shadowSize:   [50, 64], // size of the shadow
-            iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-            shadowAnchor: [4, 62],  // the same for the shadow
-            popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-        });
-        var greenIcon = L.icon({
-            iconUrl: url + 'marker-icon.png',
-            iconSize:     [25, 42], // size of the icon
-            shadowSize:   [50, 64], // size of the shadow
-            iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-            shadowAnchor: [4, 62],  // the same for the shadow
-            popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-        });
-        var map = L.map('mapid').setView([{{ config('leaflet.map_center_latitude') }}, {{ config('leaflet.map_center_longitude') }}], {{ config('leaflet.zoom_level') }});
-        var baseUrl = "{{ url('/') }}";
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-        map.on('zoomend', function() {
-            var currentZoom = map.getZoom(); 
-            if (currentZoom > 15) { 
-                map.removeLayer(icons);
-                map.addLayer(icons2);
-            }
-        })
-        L.marker([{{ config('leaflet.map_center_latitude') }}, {{ config('leaflet.map_center_longitude') }}], {icon: greenIcon}).addTo(map);
-    </script>
+        $(function() {
+            
+            const url = '{{url("images")}}/'
+            const icon = L.icon({
+                iconUrl: url + 'marker-icon.png',
+                iconSize:     [25, 42], // size of the icon
+                shadowSize:   [50, 64], // size of the shadow
+                iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+                shadowAnchor: [4, 62],  // the same for the shadow
+                popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+            });
+            const map = L.map('mapid').setView([{{ config('leaflet.map_center_latitude') }}, {{ config('leaflet.map_center_longitude') }}], {{ config('leaflet.zoom_level') }});
+            const baseUrl = "{{ url('/') }}";
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            map.on('zoomend', function() {
+                const currentZoom = map.getZoom(); 
+                if (currentZoom > 15) { 
+                    map.removeLayer(icons);
+                    map.addLayer(icons2);
+                }
+            })
+            $.ajax({
+                url:'/api/surveys',
+                dataType: 'json',
+                success: function(resp) {
+                    for(let survey in resp.surveys) {
+                        L.marker([parseFloat(resp.surveys[survey].latitude), parseFloat(resp.surveys[survey].longitude)], {icon: icon})
+                            .bindPopup(`
+                                <div style="width: 300px!important;">
+                                    <h5>${resp.surveys[survey].nama_gedung}</h5>
+                                    <h6 class="text-muted mb-2">${resp.surveys[survey].kode}</h6>
+                                    <h6 >Fungsi Gedung : </h6>
+                                    <h6 class="font-weight-normal mb-2">Sesuatu</h6>
+                                    <h6 >Fungsi Gedung : </h6>
+                                    <h6 class="font-weight-normal mb-2">Sesuatu</h6>
+                                    <h6 >Fungsi Gedung : </h6>
+                                    <h6 class="font-weight-normal mb-2">Sesuatu</h6>
+                                    <img class="gedung-image" style="display:none" width="100%" src="${resp.surveys[survey].foto}" />
+                                    <p class="text-info show-more" style="cursor:pointer">+ more info</p>
+                                </div>
+                            `)
+                            .addTo(map);
+                    }
+                }
+            })
+            
+        })</script>
     @endpush
 @endsection
