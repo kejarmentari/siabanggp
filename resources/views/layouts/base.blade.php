@@ -47,15 +47,15 @@
             </div>
         </div>
     </div>
-
-    <script src="{{ asset('theme/vendors/js/vendor.bundle.base.js') }}"></script>
-    <script src="{{ asset('theme/js/off-canvas.js') }}"></script>
-    <script src="{{ asset('theme/js/hoverable-collapse.js') }}"></script>
-    <script src="{{ asset('theme/js/misc.js') }}"></script>
     <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
+    <script src="{{ asset('theme/vendors/js/vendor.bundle.base.js') }}"></script>
+    <script src="{{ asset('theme/js/off-canvas.js') }}"></script>
+    <script src="{{ asset('theme/js/hoverable-collapse.js') }}"></script>
+    <script src="{{ asset('theme/js/misc.js') }}"></script>
+    
   <script src="{{ asset('js/js-autocomplete.min.js') }}"></script>
   @stack('scripts')
 </body>
