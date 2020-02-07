@@ -15,8 +15,8 @@ class SurveysController extends Controller
      */
     public function index()
     {
-        $selections = Selection::all();
-        return view('survey.index', compact('selections'));
+        $surveys = Survey::all();
+        return view('survey.index', compact('surveys'));
     }
     /**
      * Get all data from database
@@ -36,7 +36,8 @@ class SurveysController extends Controller
      */
     public function create()
     {
-        //
+        $selections = Selection::all();
+        return view('survey.create', compact('selections'));
     }
 
     /**

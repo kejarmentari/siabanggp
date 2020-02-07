@@ -4,7 +4,12 @@ Auth::routes();
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@dashboard')->name('dashboard');
 Route::get('/tamu', 'HomeController@guest')->name('guest');
-Route::get('/survey', 'SurveysController@index')->name('survey');
+
+Route::get('/pengaturan', 'SettingController@index')->name('setting');
+Route::put('/pengaturan/{id}', 'SettingController@update')->name('setting.update');
+
+Route::get('/gedung', 'SurveysController@index')->name('gedung');
+Route::get('/survey', 'SurveysController@create')->name('survey');
 
 /*
  * Outlets Routes
