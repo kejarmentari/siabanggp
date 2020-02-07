@@ -35,6 +35,8 @@
                                 </span>
                                 {{ $title ?? 'Dashboard' }}
                             </h3>
+                            {{-- alert notification --}}
+                            @include('layouts.partials.alert')
                         </div>
                     @endisset
 
@@ -55,8 +57,13 @@
     <script src="{{ asset('theme/js/off-canvas.js') }}"></script>
     <script src="{{ asset('theme/js/hoverable-collapse.js') }}"></script>
     <script src="{{ asset('theme/js/misc.js') }}"></script>
-    
+
   <script src="{{ asset('js/jquery.autocomplete.min.js') }}"></script>
+  <script>
+        $(".alert").delay(4000).slideUp(200, function() {
+            $(this).alert('close');
+        });
+  </script>
   @stack('scripts')
 </body>
 

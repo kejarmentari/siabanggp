@@ -13397,3 +13397,7 @@ dl {
 .content-wrapper {
     padding: 1.75rem 2.25rem;
 }
+
+.alert-dismissible .close {
+    top: -4px;
+}
