@@ -152,16 +152,15 @@
                     <div class="card-title">
                         <div class="row">
                             <div class="col-9">
-                                <h3>DATA ADMINISTRASI, KONSTRUKSI, DAN PEMELIHARAAN</h3>
+                                <h3>A. DATA ADMINISTRASI</h3>
                             </div>
                             <div class="col-3 text-right ">
-                                <button class="btn btn-success btn-sm mr-3" id="show-survey-selections">Show</button>
-                                <button class="btn btn-danger btn-sm" id="hide-survey-selections">Hide</button>
+                                <button class="btn btn-success btn-sm mr-3 show-survey-selections">Show</button>
+                                <button class="btn btn-danger btn-sm hide-survey-selections" >Hide</button>
                             </div>
                         </div>
                     </div>
-                    <div class="card-body p-2" id="survey-index-selections">
-                        <h3 class="mb-4">A. DATA ADMINISTRASI</h3>
+                    <div class="card-body p-2 survey-index-selections">
                         @foreach ($selections as $selection)
                             @if ($selection->type === 1)
                             <div class="form-group">
@@ -183,7 +182,23 @@
                             </div>
                             @endif
                         @endforeach
-                        <h3 class="mb-4">B. DATA KONSTRUKSI</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mt-4">
+                <div class="card p-4">
+                    <div class="card-title">
+                        <div class="row">
+                            <div class="col-9">
+                                <h3>B. DATA KONSTRUKSI</h3>
+                            </div>
+                            <div class="col-3 text-right ">
+                                <button class="btn btn-success btn-sm mr-3 show-survey-selections">Show</button>
+                                <button class="btn btn-danger btn-sm hide-survey-selections" >Hide</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-2 survey-index-selections">
                         @foreach ($selections as $selection)
                             @if ($selection->type === 2)
                             <div class="form-group">
@@ -205,7 +220,23 @@
                             </div>
                             @endif
                         @endforeach
-                        <h3 class="mb-4">C. DATA PEMELIHARAAN</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mt-4">
+                <div class="card p-4">
+                    <div class="card-title">
+                        <div class="row">
+                            <div class="col-9">
+                                <h3>C. DATA PEMELIHARAAN</h3>
+                            </div>
+                            <div class="col-3 text-right ">
+                                <button class="btn btn-success btn-sm mr-3 show-survey-selections">Show</button>
+                                <button class="btn btn-danger btn-sm hide-survey-selections" >Hide</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-2 survey-index-selections">
                         @foreach ($selections as $selection)
                             @if ($selection->type === 3)
                             <div class="form-group">
@@ -229,8 +260,11 @@
                         @endforeach
                     </div>
                 </div>
+            </div>
+            <div class="col-12 mt-4">
                 <button class="btn btn-primary btn-block">Save</button>
             </div>
+                
         </form>
     </div>
     @push('scripts')

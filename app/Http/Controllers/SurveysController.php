@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Survey;
 use App\Selection;
+use App\SurveySelection;
 
 class SurveysController extends Controller
 {
@@ -15,7 +16,7 @@ class SurveysController extends Controller
      */
     public function index()
     {
-        $surveys = Survey::orderBy('kode')->get(['id', 'kode', 'tanggal', 'nama_gedung']);
+        $surveys = Survey::orderBy('kode')->get(['id', 'kode', 'tanggal', 'nama_gedung', 'latitude', 'longitude']);
         return view('survey.index', compact('surveys'));
     }
     /**
@@ -59,7 +60,16 @@ class SurveysController extends Controller
      */
     public function show($id)
     {
-        //
+        $survey = Survey::find($id);
+        $selections = Selection::all();
+        $survey_selections = [];
+        foreach ($selections as $selection) {
+            $survey_selections[] = SurveySelection::where([
+                'survey_id' => $id,
+                'selection_id' => $selection->id
+            ])->get(['choice', 'description']);
+        }
+        return view('survey.show', compact(['selections', 'selections', 'survey_selections']));
     }
 
     /**

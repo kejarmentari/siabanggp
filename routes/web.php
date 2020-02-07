@@ -10,6 +10,7 @@ Route::put('/pengaturan/{id}', 'SettingController@update')->name('setting.update
 
 Route::get('/gedung', 'SurveysController@index')->name('gedung');
 Route::get('/survey', 'SurveysController@create')->name('survey');
+Route::get('/survey/{id}', 'SurveysController@show');
 
 /*
  * Outlets Routes
