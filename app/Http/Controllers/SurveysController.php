@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Survey;
 use App\Selection;
 use App\SurveySelection;
+use PDF;
 
 class SurveysController extends Controller
 {
@@ -104,5 +105,16 @@ class SurveysController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function print($id)
+    {
+        $data = Survey::findOrFail($id);
+        return view('survey.print', compact('data'));
+
+        $pdf  = PDF::loadView('survey.print', $data);
+        $kode = str_replace(".", "_", $data->kode);
+
+        return $pdf->download('cetak_siabanggp_'. $kode .'.pdf');
     }
 }
