@@ -12,6 +12,7 @@
             color: #000;
             cursor: pointer;
             transition: .2s;
+            padding: 10px 5px;
         }
         .autocomplete-suggestion:hover {
             color: #198ae3;

@@ -23,7 +23,7 @@
                         <div class="input-group-prepend bg-transparent">
                             <i class="input-group-text border-0 mdi mdi-magnify"></i>
                         </div>
-                        <input type="text" class="form-control bg-transparent border-0" placeholder="Cari peta lokasi">
+                        <input type="text" class="form-control bg-transparent border-0 search-list-bangunan" placeholder="Cari nama bangunan">
                     </div>
                 </form>
             </div>

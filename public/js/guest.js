@@ -66,12 +66,17 @@ $(function () {
                                             <h4>${resp.surveys[survey].nama_gedung}</h4>
                                         </div>
                                     </div>
-                                    <h6 class="mb-0">Fungsi Gedung : </h6>
-                                    <h5 class="font-weight-normal mb-3">${resp.surveys[survey].fungsi_gedung}</h5>
-                                    <h6 class="mb-0">Klasifikasi Gedung : </h6>
-                                    <h5 class="font-weight-normal mb-3">${resp.surveys[survey].klasifikasi_gedung}</h5>
-                                    <h6 class="mb-0">Lokasi Gedung : </h6>
-                                    <h5 class="font-weight-normal mb-3">${resp.surveys[survey].lokasi_gedung}</h5>
+                                    <h6 class="mb-0">Fungsi Gedung</h6>
+                                    <h5 class="font-weight-normal mb-3">
+                                        <i class="mdi mdi-arrow-right mr-0 text-info"></i>
+                                        ${resp.surveys[survey].fungsi_gedung == null ? '-' : resp.surveys[survey].fungsi_gedung}
+                                    </h5>
+                                    <h6 class="mb-0">Klasifikasi Gedung</h6>
+                                    <h5 class="font-weight-normal mb-3"><i class="mdi mdi-arrow-right mr-0 text-info"></i>
+                                        ${resp.surveys[survey].fungsi_gedung == null ? '-' : resp.surveys[survey].fungsi_gedung}</h5>
+                                    <h6 class="mb-0">Lokasi Gedung</h6>
+                                    <h5 class="font-weight-normal mb-3"><i class="mdi mdi-arrow-right mr-0 text-info"></i>
+                                        ${resp.surveys[survey].fungsi_gedung == null ? '-' : resp.surveys[survey].fungsi_gedung}</h5>
                                     <img class="gedung-image mb-3" style="display:none" width="100%" src="${resp.surveys[survey].foto}" />
                                     <button class="btn btn-info btn-sm show-more btn-block" style="cursor:pointer">Lihat lebih lengkap</button>
                                 </div>
@@ -79,13 +84,13 @@ $(function () {
                     .addTo(map);
             }
             surveysData = $.map(surveys, function (gedung) { return { value: gedung['nama_gedung'], data: { lat: gedung['latitude'], long: gedung['longitude'] } }; });
-            $('#searchBangunan').devbridgeAutocomplete({
+            $('.search-list-bangunan').devbridgeAutocomplete({
                 lookup: surveysData,
                 minChars: 1,
                 onSelect: function (suggestion) {
                     $('#listBangunanModal').modal('hide');
                     map.setView([parseFloat(suggestion.data.lat), parseFloat(suggestion.data.long)], 15);
-                    $('#searchBangunan').val('');
+                    $('.search-list-bangunan').val('');
                 },
                 noSuggestionNotice: 'Sorry, no matching results',
             });
