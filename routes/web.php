@@ -7,6 +7,8 @@ Route::get('/tamu', 'HomeController@guest')->name('guest');
 
 Route::get('/pengaturan', 'SettingController@index')->name('setting');
 Route::put('/pengaturan/{id}', 'SettingController@update')->name('setting.update');
+Route::get('/profil', 'SettingController@profile')->name('setting.profile');
+Route::put('/profil', 'SettingController@updateProfile')->name('setting.profile_update');
 
 Route::get('/gedung', 'SurveysController@index')->name('gedung');
 Route::get('/survey', 'SurveysController@create')->name('survey');
