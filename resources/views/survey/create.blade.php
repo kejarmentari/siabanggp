@@ -266,7 +266,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
                             @endif
                         @endforeach
@@ -274,9 +274,9 @@
                 </div>
             </div>
             <div class="col-12 mt-4">
-                <button class="btn btn-primary btn-block">Save</button>
+                <button class="btn btn-lg btn-info btn-block">SIMPAN DATA SURVEY</button>
             </div>
-                
+
         </form>
     </div>
     @push('scripts')
