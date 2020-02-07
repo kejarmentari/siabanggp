@@ -18,7 +18,9 @@ class HomeController extends Controller
 
     public function guest()
     {
-        return view('guest.index');
+        $setting = \App\Setting::first();
+
+        return view('guest.index', compact('setting'));
     }
 
     /**
