@@ -15,7 +15,7 @@ class SurveysController extends Controller
      */
     public function index()
     {
-        $surveys = Survey::all();
+        $surveys = Survey::orderBy('kode')->get(['id', 'kode', 'tanggal', 'nama_gedung']);
         return view('survey.index', compact('surveys'));
     }
     /**
