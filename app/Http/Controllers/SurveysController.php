@@ -70,7 +70,7 @@ class SurveysController extends Controller
                 'selection_id' => $selection->id
             ])->get(['choice', 'description']);
         }
-        return view('survey.show', compact(['selections', 'selections', 'survey_selections']));
+        return view('survey.show', ['survey' => $survey, 'selections' => $selections, 'survey_selections' => $survey_selections]);
     }
 
     /**

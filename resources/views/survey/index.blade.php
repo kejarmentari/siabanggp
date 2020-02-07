@@ -53,10 +53,10 @@
                 <a href="#" class="btn btn-sm  btn-info mr-2">
                     Ubah
                 </a>
-                <a href="#" class="btn btn-sm  btn-danger mr-2">
+                <a href="#" class="btn btn-sm  btn-danger mr-2 ">
                     Hapus
                 </a>
-                <a href="#" class="btn btn-sm  btn-warning">
+                <a href="#" class="btn btn-sm  btn-warning cetak-button">
                     Cetak
                 </a>
                 </div>
@@ -151,6 +151,10 @@
             $('.detail-button').on('click', function(e) {
                 e.preventDefault();
                 $(location).attr('href',`/survey/${$('table tbody tr').data('id')}`);
+            })
+            $('.cetak-button').on('click', function(e) {
+                e.preventDefault();
+                $(location).attr('href',`/cetak/${$('table tbody tr').data('id')}`);
             })
             
         })
