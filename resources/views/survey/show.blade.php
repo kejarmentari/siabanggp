@@ -19,18 +19,20 @@
                         <h5 class="font-weight-normal">: {{$survey->tanggal}}</h5>
                     </div>
                     <div class="col-md-3 col-12 mt-2">
-                        <h5>Youtube ID</h5>
+                        <h5>Foto / Video:</h5>
                     </div>
-                    <div class="col-md-9 col-12 mt-2">
-                        <h5 class="font-weight-normal">: {{$survey->youtube_id}}</h5>
+                    <div class="col-md-4 col-12 mt-2">
+                        <img class="img-thumbnail" src="{{$survey->foto}}" />
                     </div>
-                    <div class="col-md-3 col-12 mt-2">
-                        <h5>Foto :</h5>
-                    </div>
-                    <div class="col-md-9 col-12 mt-2">
-                        <img height="200" src="{{$survey->foto}}" />
+                    <div class="col-md-5 col-12 mt-2">
+                        <div class="img-thumbnail">
+                            <iframe width="100%" height="185" src="https://www.youtube.com/embed/{{$survey->youtube_id}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
                     </div>
                 </div>
+
+                <hr class="mt-4">
+
                 <h2 class="mt-4">I. DATA UMUM</h2>
                 <div class="row no-gutters mt-3">
                     <div class="col-md-4 col-12 mt-2">
@@ -170,12 +172,12 @@
                                     @else
                                         <h5 class="font-weight-normal">: Sesuai</h5>
                                     @endif
-                                    
+
                                 </div>
                             @endif
                         @endforeach
                         </div>
-                        
+
                         <h2 class="mt-4">B. DATA KONSTRUKSI</h2>
                         <div class="row">
                             @foreach ($survey_selections as $selection)
@@ -189,7 +191,7 @@
                                     @else
                                         <h5 class="font-weight-normal">: Sesuai</h5>
                                     @endif
-                                    
+
                                 </div>
                             @endif
                         @endforeach
@@ -208,7 +210,7 @@
                                     @else
                                         <h5 class="font-weight-normal">: Sesuai</h5>
                                     @endif
-                                    
+
                                 </div>
                             @endif
                         @endforeach
