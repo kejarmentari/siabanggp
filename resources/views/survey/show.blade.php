@@ -162,7 +162,7 @@
                             @foreach ($survey_selections as $selection)
                             @if ($selection->selection->type == 1)
                                 <div class="col-md-4 col-12 mt-2">
-                                    <h5>{{$selection->selection->title}}</h5>
+                                    <h5>{{$loop->iteration}}. {{$selection->selection->title}}</h5>
                                 </div>
                                 <div class="col-md-8 col-12 mt-2">
                                     @if ($selection->choice == 0)
@@ -181,7 +181,7 @@
                             @foreach ($survey_selections as $selection)
                             @if ($selection->selection->type == 2)
                                 <div class="col-md-4 col-12 mt-2">
-                                    <h5>{{$selection->selection->title}}</h5>
+                                    <h5>{{$loop->iteration}}. {{$selection->selection->title}}</h5>
                                 </div>
                                 <div class="col-md-8 col-12 mt-2">
                                     @if ($selection->choice == 0)
@@ -194,13 +194,12 @@
                             @endif
                         @endforeach
                         </div>
-
                         <h2 class="mt-4">C. DATA PEMELIHARAAN</h2>
                         <div class="row">
                             @foreach ($survey_selections as $selection)
                             @if ($selection->selection->type == 3)
                                 <div class="col-md-4 col-12 mt-2">
-                                    <h5>{{$selection->selection->title}}</h5>
+                                    <h5>{{$loop->iteration}}. {{$selection->selection->title}}</h5>
                                 </div>
                                 <div class="col-md-8 col-12 mt-2">
                                     @if ($selection->choice == 0)

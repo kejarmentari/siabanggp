@@ -241,20 +241,32 @@
                             @if ($selection->type === 3)
                             <div class="form-group">
                                 <label>{{$selection->title}}</label>
-                                <div class="d-flex mt-0">
-                                    <div class="form-check form-check-inline">
-                                        <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="form-check">
-                                        Sesuai
-                                        </label>
+                                <div class="row mt-1">
+                                    <div class="col-md-3 col-12">
+                                        <label for="">Pilihan</label>
+                                        <div class="d-flex mt-0">
+                                            <div class="form-check form-check-inline">
+                                                <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="form-check">
+                                                Sesuai
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="form-check">
+                                                Tidak Sesuai
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="form-check form-check-inline">
-                                        <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="form-check">
-                                        Tidak Sesuai
-                                        </label>
+                                    <div class="col-md-9 col-12">
+                                        <div class="form-group">
+                                            <label for="exampleInputUsername1">Deskripsi</label>
+                                            <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Deskripsi">
+                                        </div>
                                     </div>
                                 </div>
+                                
                             </div>
                             @endif
                         @endforeach

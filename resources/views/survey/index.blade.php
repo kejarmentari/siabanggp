@@ -20,7 +20,7 @@
                                     <td>{{ $survey->nama_gedung }}</td>
                                 </tr>
                             @else
-                                <tr data-lat="{{$survey->latitude}}"data-long="{{$survey->longitude}}">
+                                <tr data-id="{{$survey->id}}" data-lat="{{$survey->latitude}}"data-long="{{$survey->longitude}}">
                                     <td>{{ $survey->kode }}</td>
                                     <td>{{ $survey->nama_gedung }}</td>
                                 </tr>
@@ -150,11 +150,11 @@
             })
             $('.detail-button').on('click', function(e) {
                 e.preventDefault();
-                $(location).attr('href',`/survey/${$('table tbody tr').data('id')}`);
+                $(location).attr('href',`/survey/${$('table tbody tr.selected').data('id')}`);
             })
             $('.cetak-button').on('click', function(e) {
                 e.preventDefault();
-                $(location).attr('href',`/cetak/${$('table tbody tr').data('id')}`);
+                $(location).attr('href',`/cetak/${$('table tbody tr.selected').data('id')}`);
             })
             
         })
