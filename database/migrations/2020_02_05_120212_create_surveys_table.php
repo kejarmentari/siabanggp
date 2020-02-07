@@ -25,7 +25,7 @@ class CreateSurveysTable extends Migration
             $table->string('fungsi_gedung')->nullable();
             $table->string('klasifikasi_gedung')->nullable();
             $table->string('lokasi_gedung')->nullable();
-            $table->integer('jumlah_antai')->default(0);
+            $table->integer('jumlah_lantai')->default(0);
             $table->integer('ketinggian')->default(0);
             $table->integer('luas_lantai')->default(0);
             $table->integer('luas_lantai_dasar')->default(0);

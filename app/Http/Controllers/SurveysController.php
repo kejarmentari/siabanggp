@@ -61,15 +61,9 @@ class SurveysController extends Controller
     public function show($id)
     {
         $survey = Survey::find($id);
-        $selections = Selection::all();
-        $survey_selections = [];
-        foreach ($selections as $selection) {
-            $survey_selections[] = SurveySelection::where([
-                'survey_id' => $id,
-                'selection_id' => $selection->id
-            ])->get(['choice', 'description']);
-        }
-        return view('survey.show', ['survey' => $survey, 'selections' => $selections, 'survey_selections' => $survey_selections]);
+        $administrasi_selections = Selection::where('type', 1)->get();
+        $survey_selections = SurveySelection::where('survey_id', $id)->get();
+        return view('survey.show', ['survey' => $survey,  'survey_selections' => $survey_selections]);
     }
 
     /**
