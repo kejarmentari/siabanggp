@@ -16,7 +16,7 @@ $(function () {
         shadowAnchor: [4, 62],  // the same for the shadow
         popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
-    const map = L.map('mapid').setView([-1.260325, 116.8219728], 13);
+    const map = L.map('mapid').setView([-1.23966, 116.85752], 13);
     const baseUrl = "{{ url('/') }}";
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
