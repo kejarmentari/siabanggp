@@ -77,7 +77,10 @@ $(function () {
                                     <h6 class="mb-0">Lokasi Gedung</h6>
                                     <h5 class="font-weight-normal mb-3"><i class="mdi mdi-arrow-right mr-0 text-info"></i>
                                         ${resp.surveys[survey].fungsi_gedung == null ? '-' : resp.surveys[survey].fungsi_gedung}</h5>
-                                    <img class="gedung-image mb-3" style="display:none" width="100%" src="${resp.surveys[survey].foto}" />
+                                    <div class="detail" style="display:none">
+                                        <img class=" mb-3"  width="100%" src="${resp.surveys[survey].foto}" />
+                                        <iframe width="100%" height="185" src="https://www.youtube.com/embed/${resp.surveys[survey].youtube_id}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
                                     <button class="btn btn-info btn-sm show-more btn-block" style="cursor:pointer">Lihat lebih lengkap</button>
                                 </div>
                             `)

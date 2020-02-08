@@ -53,7 +53,7 @@
                 <a href="#" class="btn btn-sm  btn-info mr-2 edit-button">
                     Ubah
                 </a>
-                <a href="#" class="btn btn-sm  btn-danger mr-2 ">
+                <a href="#" class="btn btn-sm  btn-danger mr-2 hapus-button">
                     Hapus
                 </a>
                 <a href="#" class="btn btn-sm  btn-warning cetak-button">
@@ -164,7 +164,6 @@
                 e.preventDefault();
                 $(location).attr('href',`/cetak/${$('table tbody tr.selected').data('id')}`);
             })
-            
         })
     </script>
 @endpush
