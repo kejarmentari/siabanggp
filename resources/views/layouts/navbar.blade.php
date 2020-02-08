@@ -57,8 +57,8 @@
                         </a>
                     </li>
                 @endif
-
                 <li class="nav-item nav-profile dropdown">
+                    
                     <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown"
                         aria-expanded="false">
                         <div class="nav-profile-img">
@@ -85,9 +85,19 @@
                 </li>
             @endauth
         </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+        @if ($is_guest)
+            <a class="nav-link text-black mt-3 d-lg-none" href="#" data-toggle="modal" data-target="#listBangunanModal">
+                <h3><i class="mdi mdi-home-modern menu-icon" id="fullscreen-button"></i></h3>
+            </a>
+            <a class="nav-link text-black mt-3 d-lg-none" href="#" data-toggle="modal" data-target="#aboutModal">
+                <h3><i class="mdi mdi-comment-question-outline" id="fullscreen-button"></i></h3>
+            </a>
+        @endif
+        @if(!$is_guest) 
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
             data-toggle="offcanvas">
             <span class="mdi mdi-menu"></span>
         </button>
+        @endif
     </div>
 </nav>

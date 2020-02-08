@@ -42,10 +42,10 @@ $(function () {
                         <div class="card mb-1">
                             <div class="card-body p-2">
                                 <div class="row no-gutters">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 col-1">
                                         <div class="badge badge-${survey % 2 == 1 ? 'info' : 'success'}"><h2>${parseInt(survey) + 1}</h2></div>
                                     </div>
-                                    <div class="col-md-11 pl-3 pt-2">
+                                    <div class="col-md-11 pl-3 pt-2 col-11">
                                         <h5 class="card-title mb-1">${resp.surveys[survey].nama_gedung}</h5>
                                         <h6 class="card-subtitle mb-0 text-muted mt-1">Kode : ${resp.surveys[survey].kode}</h6>
                                     </div>

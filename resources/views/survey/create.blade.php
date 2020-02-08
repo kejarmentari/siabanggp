@@ -305,9 +305,7 @@
             </div>
             <div class="col-12 mt-4">
                 <button type="submit" class="btn btn-primary btn-block">SIMPAN DATA SURVEY</button>
-
             </div>
-
         </form>
     </div>
     @push('styles')
