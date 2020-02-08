@@ -50,7 +50,7 @@
                 <a href="#" class="btn btn-sm  btn-success mr-2 detail-button">
                     Detail
                 </a>
-                <a href="#" class="btn btn-sm  btn-info mr-2">
+                <a href="#" class="btn btn-sm  btn-info mr-2 edit-button">
                     Ubah
                 </a>
                 <a href="#" class="btn btn-sm  btn-danger mr-2 ">
@@ -155,6 +155,10 @@
             $('.detail-button').on('click', function(e) {
                 e.preventDefault();
                 $(location).attr('href',`/survey/${$('table tbody tr.selected').data('id')}`);
+            })
+            $('.edit-button').on('click', function(e) {
+                e.preventDefault();
+                $(location).attr('href',`/survey/edit/${$('table tbody tr.selected').data('id')}`);
             })
             $('.cetak-button').on('click', function(e) {
                 e.preventDefault();

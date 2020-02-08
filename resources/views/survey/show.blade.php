@@ -22,7 +22,7 @@
                         <h6>Foto / Video</h6>
                     </div>
                     <div class="col-md-4 col-12 mt-2">
-                        <img class="img-thumbnail" src="{{$survey->foto}}" />
+                        <img class="img-thumbnail" src="http://127.0.0.1:8000/storage/foto/{{$survey->foto}}" />
                     </div>
                     <div class="col-md-5 col-12 mt-2">
                         <div class="img-thumbnail">
@@ -175,7 +175,7 @@
 
                                 </div>
                             @endif
-                        @endforeach
+                            @endforeach
                         </div>
 
                         <h3 class="mt-4">B. DATA KONSTRUKSI</h3>
@@ -194,7 +194,7 @@
 
                                 </div>
                             @endif
-                        @endforeach
+                            @endforeach
                         </div>
 
                         <h3 class="mt-4">C. DATA PEMELIHARAAN</h3>

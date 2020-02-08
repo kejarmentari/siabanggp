@@ -13,7 +13,9 @@ Route::put('/profil', 'SettingController@updateProfile')->name('setting.profile_
 Route::get('/gedung', 'SurveysController@index')->name('gedung');
 Route::get('/survey', 'SurveysController@create')->name('survey');
 Route::post('/survey', 'SurveysController@store');
+Route::put('/survey/{id}', 'SurveysController@update');
 Route::get('/survey/{id}', 'SurveysController@show');
+Route::get('/survey/edit/{id}', 'SurveysController@edit');
 Route::get('/cetak/{id}', 'SurveysController@print');
 
 /*

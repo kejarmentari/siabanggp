@@ -6,10 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Survey extends Model
 {
-    public function getTanggalAttribute($value)
+    public function getTanggalFormatedAttribute($value)
     {
         $date = explode("-", $value);
-
-        return $date[2] .'/'. $date[1]. '/'. $date[0];
+        return $date[2] . '/' . $date[1] . '/' . $date[0];
     }
 }
