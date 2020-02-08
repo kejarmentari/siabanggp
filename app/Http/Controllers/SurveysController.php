@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Survey;
 use App\Selection;
 use App\SurveySelection;
+use Illuminate\Support\Facades\Auth;
 use PDF;
 
 class SurveysController extends Controller
@@ -50,7 +51,58 @@ class SurveysController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $selections = Selection::all();
+        $surveys = Survey::orderBy('kode')->get(['id', 'kode', 'tanggal', 'nama_gedung', 'latitude', 'longitude']);
+
+
+        //Handle File Upload
+        if ($request->hasFile('foto')) {
+            // Get filename with the extension
+            $filenameWithExtension  = $request->file('foto')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExtension, PATHINFO_FILENAME);
+            //Get just extension
+            $extension = $request->file('foto')->getClientOriginalExtension();
+            //Filename to store;
+            $filenameToStore = $filename . '_' . time() . '.' . $extension;
+        } else {
+            $filenameToStore = 'noImage.jpg';
+        }
+        //Upload Image
+        $path = $request->file('foto')->storeAs('public/foto', $filenameToStore);
+        $survey = new Survey;
+        $survey->user_id = auth()->user()->id;
+        $survey->kode = $request->kodeBangunan;
+        $survey->latitude = $request->latitude;
+        $survey->longitude = $request->longitude;
+        $survey->tanggal = $request->tanggal;
+        $survey->youtube_id = $request->youtube_id;
+        $survey->pemilik_gedung = $request->pemilik_gedung;
+        $survey->nama_gedung = $request->nama_gedung;
+        $survey->fungsi_gedung = $request->fungsi_gedung;
+        $survey->klasifikasi_gedung = $request->klasifikasi_gedung;
+        $survey->jumlah_lantai = $request->jumlah_lantai;
+        $survey->ketinggian = $request->ketinggian;
+        $survey->luas_lantai = $request->luas_lantai;
+        $survey->luas_lantai_dasar = $request->luas_lantai_dasar;
+        $survey->luas_tanah = $request->luas_tanah;
+        $survey->surat_bukti = $request->surat_bukti;
+        $survey->pptk = $request->pptk;
+        $survey->ppk = $request->ppk;
+        $survey->tahun_anggaran = $request->tahun_anggaran;
+        $survey->cara_pelaksanaan = $request->cara_pelaksanaan;
+        $survey->youtube_id = $request->youtube_id;
+        $survey->foto = $filenameToStore;
+        $survey->save();
+        foreach ($selections as $selection) {
+            $survey_selection = new SurveySelection;
+            $survey_selection->survey_id = $survey->id;
+            $survey_selection->selection_id = $selection->id;
+            $survey_selection->choice = $request['selection_' . $selection->id];
+            $survey_selection->description = $request['selection_' . $selection->id . '_desc'];
+            $survey_selection->save();
+        }
+        return view('survey.index', compact('surveys'))->with('success', 'Berhasil menambah data survey');
     }
 
     /**
@@ -109,6 +161,6 @@ class SurveysController extends Controller
         $pdf  = PDF::loadView('survey.print', $data);
         $kode = str_replace(".", "_", $data->kode);
 
-        return $pdf->download('cetak_siabanggp_'. $kode .'.pdf');
+        return $pdf->download('cetak_siabanggp_' . $kode . '.pdf');
     }
 }

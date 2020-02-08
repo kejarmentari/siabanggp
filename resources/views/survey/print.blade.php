@@ -105,7 +105,6 @@
         </tr>
         <tr>
             <td colspan="2" style="padding-left: 1.4rem;">
-
                 1. CARA PELAKSANAAN
             </td>
             <td colspan="2">

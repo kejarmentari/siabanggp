@@ -37,8 +37,8 @@
             <div class="card-body">
                 <h4>Peta</h4>
                 <div  id="mapid"></div>
-                <small class="mb-0 mt-3 d-block">Latitude (X) &nbsp;&nbsp; : {{$surveys[0]->latitude}}</small>
-                <small class="mb-0">Longitude (Y) : {{$surveys[0]->latitude}}</small>
+                <small class="mb-0 mt-3 d-block">Latitude (X) &nbsp;&nbsp; :  <span class="selected-lat"></span></small>
+                <small class="mb-0">Longitude (Y) :  <span class="selected-long"></span></small>
             </div>
         </div>
 
@@ -144,10 +144,14 @@
             $('table tbody tr').on('click', function() {
                 $(this).siblings('tr').removeClass('selected');
                 $(this).addClass('selected');
+                $('.selected-lat').html($(this).data('lat'));
+                $('.selected-long').html($(this).data('long'));
                 map.setView([$(this).data('lat'), $(this).data('long')], {{ config('leaflet.detail_zoom_level') }})
                 L.marker([$(this).data('lat'), $(this).data('long')]).addTo(map)
                 .bindPopup('');
             })
+            $('.selected-lat').html($('table tbody tr.selected').data('lat'));
+            $('.selected-long').html($('table tbody tr.selected').data('long'));
             $('.detail-button').on('click', function(e) {
                 e.preventDefault();
                 $(location).attr('href',`/survey/${$('table tbody tr.selected').data('id')}`);
