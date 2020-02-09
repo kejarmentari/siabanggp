@@ -78,8 +78,10 @@ $(function () {
                                     <h5 class="font-weight-normal mb-3"><i class="mdi mdi-arrow-right mr-0 text-info"></i>
                                         ${resp.surveys[survey].fungsi_gedung == null ? '-' : resp.surveys[survey].fungsi_gedung}</h5>
                                     <div class="detail" style="display:none">
+                                        <h6 class="mb-1">Foto :</h6>
                                         <img class=" mb-3"  width="100%" src="${resp.surveys[survey].foto}" />
-                                        <iframe width="100%" height="185" src="https://www.youtube.com/embed/${resp.surveys[survey].youtube_id}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        <h6 class="mb-1">Video :</h6>
+                                        ${resp.surveys[survey].youtube_id == null ? '<h5 class="font-weight-normal"><i class="mdi mdi-arrow-right mr-0 text-info"></i>Video tidak tersedia</h5>' : '<iframe width="100%" height="185" src="https://www.youtube.com/embed/' + resp.surveys[survey].youtube_id + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'}
                                     </div>
                                     <button class="btn btn-info btn-sm show-more btn-block" style="cursor:pointer">Lihat lebih lengkap</button>
                                 </div>
