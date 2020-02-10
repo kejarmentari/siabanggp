@@ -7,8 +7,8 @@ $(function () {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
-    L.marker([$('table tbody tr.selected').data('lat'),$('table tbody tr.selected').data('long')]).addTo(map)
-        .bindPopup('');
+    var markerGroup = L.layerGroup().addTo(map);
+    L.marker([$('table tbody tr.selected').data('lat'),$('table tbody tr.selected').data('long')]).addTo(markerGroup);
 
     // init datatable with custom language
     $('.table').DataTable({
@@ -32,16 +32,17 @@ $(function () {
     });
 
     // row click => change map view focus
-    $('table tbody tr').on('click', function() {
+    $('table').on('click', 'tr', function() {
+        console.log("something");
         $(this).siblings('tr').removeClass('selected');
         $(this).addClass('selected');
         $('.selected-lat').html($(this).data('lat'));
         $('.selected-long').html($(this).data('long'));
-        map.setView([$(this).data('lat'), $(this).data('long')], {{ config('leaflet.detail_zoom_level') }})
-        L.marker([$(this).data('lat'), $(this).data('long')]).addTo(map)
-        .bindPopup('');
+        
+        map.setView([$(this).data('lat'), $(this).data('long')], {{ config('leaflet.detail_zoom_level') }});
+        markerGroup.clearLayers();
+        L.marker([$(this).data('lat'), $(this).data('long')]).addTo(markerGroup);
     })
-
     // set default lat & long
     $('.selected-lat').html($('table tbody tr.selected').data('lat'));
     $('.selected-long').html($('table tbody tr.selected').data('long'));

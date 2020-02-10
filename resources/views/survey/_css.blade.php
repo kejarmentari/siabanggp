@@ -6,8 +6,15 @@
     div.dataTables_wrapper div.dataTables_length label {
         margin-top: 9px;
     }
+    table {
+        overflow: hidden;
+    }
+    table tbody tr td {
+        width: 100px!important;
+    }
     table tbody  tr {
         cursor: pointer;
+        width: 100%;
     }
     table tbody tr.selected {
         background: #198ae3!important;
