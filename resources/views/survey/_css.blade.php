@@ -35,4 +35,9 @@
         padding-top: 1.5em;
         font-size: .9rem;
     }
+
+    .table th, .table td {
+        white-space: normal;
+        line-height: 1.2;
+    }
 </style>

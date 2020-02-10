@@ -8,7 +8,7 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>Kode</th>
+                            <th style="width: 40px !important;">Kode</th>
                             <th>Nama Bangunan</th>
                         </tr>
                     </thead>
@@ -16,12 +16,12 @@
                         @foreach ($surveys as $survey)
                             @if ($loop->first)
                                 <tr data-id="{{$survey->id}}" data-lat="{{$survey->latitude}}"data-long="{{$survey->longitude}}" class="selected" >
-                                    <td>{{ $survey->kode }}</td>
+                                    <td style="width: 40px !important;">{{ $survey->kode }}</td>
                                     <td>{{ $survey->nama_gedung }}</td>
                                 </tr>
                             @else
                                 <tr data-id="{{$survey->id}}" data-lat="{{$survey->latitude}}"data-long="{{$survey->longitude}}">
-                                    <td>{{ $survey->kode }}</td>
+                                    <td style="width: 40px !important;">{{ $survey->kode }}</td>
                                     <td>{{ $survey->nama_gedung }}</td>
                                 </tr>
                             @endif
