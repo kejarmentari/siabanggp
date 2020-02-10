@@ -42,9 +42,9 @@
                                         <input id="foto-source" onchange="previewImage();" type="file" class="form-control" id="foto" name="foto">
                                     </div>
                                     @if ($survey->foto == null)
-                                        <img style="height:300px!important; margin-left:10%" id="foto-preview" class="img-thumbnail" src="http://127.0.0.1:8000/storage/foto/default.png" alt={{$survey->foto}}>
+                                        <img style="height:300px!important; margin-left:10%" id="foto-preview" class="img-thumbnail" src="{{ asset('storage/foto/default.png') }}" alt={{$survey->foto}}>
                                     @else
-                                        <img style="height:300px!important; margin-left:10%" id="foto-preview" class="img-thumbnail" src="http://127.0.0.1:8000/storage/foto/{{$survey->foto}} alt={{$survey->foto}}>
+                                        <img style="height:300px!important; margin-left:10%" id="foto-preview" class="img-thumbnail" src="{{ asset('storage/foto/'.$survey->foto) }}" alt="{{$survey->foto}}">
                                     @endif
                                 </div>
                                 <div class="col-md-6 col-12">
@@ -378,7 +378,7 @@
         $('.datepicker').datepicker({
             format: 'yyyy-mm-dd'
         });</script>
-        
+
     @endpush
 @endsection
 
