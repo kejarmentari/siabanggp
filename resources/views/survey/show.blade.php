@@ -30,7 +30,6 @@
                         </div>
                     </div>
                 </div>
-
                 <hr class="mt-4">
 
                 <h3 class="mt-4">I. DATA UMUM</h3>

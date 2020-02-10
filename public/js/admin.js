@@ -29,4 +29,8 @@ $(function () {
             L.marker([parseFloat($('input[name="latitude"]').val()), parseFloat($('input[name="longitude"]').val())], 16).addTo(createMap);
         }
     })
+    $('.youtube-refresh').on('click', function (e) {
+        e.preventDefault();
+        $('.youtube-video').attr('src', 'https://www.youtube.com/embed/' + $('input[name="youtube_id"]').val());
+    })
 })

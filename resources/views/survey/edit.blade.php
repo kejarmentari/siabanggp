@@ -46,13 +46,13 @@
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="youtube_id">Youtube ID</label>
-                                        <div class="input-group">
+                                        <div class="input-group mb-4">
                                             <input value={{$survey->youtube_id}} type="text" name="youtube_id" class="form-control" id="youtube_id" placeholder="Youtube ID">
                                             <div class="input-group-prepend">
-                                                <a href="#" class="btn btn-info">Refresh</a>
+                                                <a href="#" class="btn btn-info youtube-refresh">Refresh</a>
                                             </div>
                                         </div>
-                                        <iframe width="100%" class="mt-4" height="300" src="https://www.youtube.com/embed/{{$survey->youtube_id}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        <iframe class="youtube-video" width="100%" class="mt-4" height="300" src="https://www.youtube.com/embed/{{$survey->youtube_id}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     </div>
                                 </div>
                             </div>
