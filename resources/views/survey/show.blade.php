@@ -22,7 +22,11 @@
                         <h6>Foto / Video</h6>
                     </div>
                     <div class="col-md-4 col-12 mt-2">
-                        <img class="img-thumbnail" src="http://127.0.0.1:8000/storage/foto/{{$survey->foto}}" />
+                        @if ($survey->foto == null)
+                            <img class="img-thumbnail" src="http://127.0.0.1:8000/storage/foto/default.png" />
+                        @else
+                            <img class="img-thumbnail" src="http://127.0.0.1:8000/storage/foto/{{$survey->foto}}" />
+                        @endif
                     </div>
                     <div class="col-md-5 col-12 mt-2">
                         <div class="img-thumbnail">
@@ -160,16 +164,17 @@
                     <div class="col-12">
                         <h3 class="mt-4">A. DATA ADMINISTRASI</h3>
                         <div class="row">
+                            @php $no = 1; @endphp
                             @foreach ($survey_selections as $selection)
                             @if ($selection->selection->type == 1)
                                 <div class="col-md-4 col-12 mt-2">
-                                    <h5>{{$loop->iteration}}. {{$selection->selection->title}}</h5>
+                                    <h5>{{$no++}}. {{$selection->selection->title}}</h5>
                                 </div>
                                 <div class="col-md-8 col-12 mt-2">
                                     @if ($selection->choice == 0)
-                                        <h6 class="font-weight-normal">: Tidak Sesuai</h6>
+                                        <h6 class="font-weight-normal">: Tidak Sesuai  ({{$selection->description}})</h6>
                                     @else
-                                        <h6 class="font-weight-normal">: Sesuai</h6>
+                                        <h6 class="font-weight-normal">: Sesuai  ({{$selection->description}})</h6>
                                     @endif
 
                                 </div>
@@ -179,16 +184,17 @@
 
                         <h3 class="mt-4">B. DATA KONSTRUKSI</h3>
                         <div class="row">
+                            @php $no = 1; @endphp
                             @foreach ($survey_selections as $selection)
                             @if ($selection->selection->type == 2)
                                 <div class="col-md-4 col-12 mt-2">
-                                    <h5>{{$loop->iteration}}. {{$selection->selection->title}}</h5>
+                                    <h5>{{$no++}}. {{$selection->selection->title}}</h5>
                                 </div>
                                 <div class="col-md-8 col-12 mt-2">
                                     @if ($selection->choice == 0)
-                                        <h6 class="font-weight-normal">: Tidak Sesuai</h6>
+                                        <h6 class="font-weight-normal">: Tidak Sesuai ({{$selection->description}})</h6>
                                     @else
-                                        <h6 class="font-weight-normal">: Sesuai</h6>
+                                        <h6 class="font-weight-normal">: Sesuai  ({{$selection->description}})</h6>
                                     @endif
 
                                 </div>
@@ -199,16 +205,17 @@
                         <h3 class="mt-4">C. DATA PEMELIHARAAN</h3>
 
                         <div class="row">
+                            @php $no = 1; @endphp
                             @foreach ($survey_selections as $selection)
                             @if ($selection->selection->type == 3)
                                 <div class="col-md-4 col-12 mt-2">
-                                    <h5>{{$loop->iteration}}. {{$selection->selection->title}}</h5>
+                                    <h5>{{$no++}}. {{$selection->selection->title}}</h5>
                                 </div>
                                 <div class="col-md-8 col-12 mt-2">
                                     @if ($selection->choice == 0)
-                                        <h6 class="font-weight-normal">: Tidak Sesuai</h6>
+                                        <h6 class="font-weight-normal">: Tidak Sesuai  ({{$selection->description}})</h6>
                                     @else
-                                        <h6 class="font-weight-normal">: Sesuai</h6>
+                                        <h6 class="font-weight-normal">: Sesuai  ({{$selection->description}})</h6>
                                     @endif
 
                                 </div>

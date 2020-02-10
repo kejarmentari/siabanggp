@@ -79,7 +79,8 @@ $(function () {
                                         ${resp.surveys[survey].lokasi_gedung == null ? '-' : resp.surveys[survey].lokasi_gedung}</h5>
                                     <div class="detail" style="display:none">
                                         <h6 class="mb-1">Foto :</h6>
-                                        <img class=" mb-3"  width="100%" src="${resp.surveys[survey].foto}" />
+                                        ${resp.surveys[survey].foto == null ? '<h5 class="font-weight-normal"><i class="mdi mdi-arrow-right mr-0 text-info"></i>Foto tidak tersedia</h5>' : '<img class=" mb-3"  width="100%" src="http://127.0.0.1:8000/storage/foto/${resp.surveys[survey].foto}" />'}
+                                        
                                         <h6 class="mb-1">Video :</h6>
                                         ${resp.surveys[survey].youtube_id == null ? '<h5 class="font-weight-normal"><i class="mdi mdi-arrow-right mr-0 text-info"></i>Video tidak tersedia</h5>' : '<iframe width="100%" height="185" src="https://www.youtube.com/embed/' + resp.surveys[survey].youtube_id + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'}
                                     </div>

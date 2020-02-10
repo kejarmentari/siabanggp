@@ -41,13 +41,17 @@
                                         <label for="foto">Foto</label>
                                         <input type="file" class="form-control" id="foto" name="foto">
                                     </div>
-                                    <img style="height:300px!important; margin-left:10%" class="img-thumbnail" src="http://127.0.0.1:8000/storage/foto/{{$survey->foto}}" alt={{$survey->foto}}>
+                                    @if ($survey->foto == null)
+                                        <img style="height:300px!important; margin-left:10%" class="img-thumbnail" src="http://127.0.0.1:8000/storage/foto/default.png" alt={{$survey->foto}}>
+                                    @else
+                                        <img style="height:300px!important; margin-left:10%" class="img-thumbnail" src="http://127.0.0.1:8000/storage/foto/{{$survey->foto}} alt={{$survey->foto}}>
+                                    @endif
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="youtube_id">Youtube ID</label>
                                         <div class="input-group mb-4">
-                                            <input value={{$survey->youtube_id}} type="text" name="youtube_id" class="form-control" id="youtube_id" placeholder="Youtube ID">
+                                            <input value="{{$survey->youtube_id}}" type="text" name="youtube_id" class="form-control" id="youtube_id" placeholder="Youtube ID">
                                             <div class="input-group-prepend">
                                                 <a href="#" class="btn btn-info youtube-refresh">Refresh</a>
                                             </div>
