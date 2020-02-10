@@ -330,7 +330,7 @@
                 </div>
             </div>
             <div class="col-12 mt-4">
-                <button type="submit" class="btn btn-lg btn-info btn-block">SIMPAN DATA SURVEY</button>
+                <button type="submit" class="btn btn-lg btn-info btn-block">SIMPAN PERUBAHAN DATA SURVEY</button>
             </div>
 
         </form>

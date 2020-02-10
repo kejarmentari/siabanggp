@@ -40,12 +40,16 @@
         .list-card:hover h5 {
             color: #198ae3;
         }
+
+        h6 {
+            font-size: .85rem;
+        }
     </style>
 @endpush
 @section('content')
     @include('guest.about-modal')
     @include('guest.list-modal')
-    
+
     @push('scripts')
     <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
