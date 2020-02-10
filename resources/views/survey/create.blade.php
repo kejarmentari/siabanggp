@@ -40,7 +40,7 @@
                                         <label for="foto">Foto</label>
                                         <input type="file" class="form-control" id="foto-source" name="foto"  onchange="previewImage()">
                                     </div>
-                                    <img  style="height:300px!important; margin-left:10%" id="foto-preview" class="img-thumbnail" src="{{ asset('storage/foto/default.png') }}" alt="">
+                                    <img id="foto-preview" class="img-thumbnail" src="https://via.placeholder.com/415x300.png?text=Tidak+Ada+Foto" alt="preview photo">
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">

@@ -42,9 +42,9 @@
                                         <input id="foto-source" onchange="previewImage();" type="file" class="form-control" id="foto" name="foto">
                                     </div>
                                     @if ($survey->foto == null)
-                                        <img style="height:300px!important; margin-left:10%" id="foto-preview" class="img-thumbnail" src="{{ asset('storage/foto/default.png') }}" alt={{$survey->foto}}>
+                                        <img id="foto-preview" class="img-thumbnail" src="https://via.placeholder.com/415x300.png?text=Tidak+Ada+Foto" alt="preview photo">
                                     @else
-                                        <img style="height:300px!important; margin-left:10%" id="foto-preview" class="img-thumbnail" src="{{ asset('storage/foto/'.$survey->foto) }}" alt="{{$survey->foto}}">
+                                        <img id="foto-preview" class="img-thumbnail" src="{{ asset('storage/foto/'.$survey->foto) }}" alt="{{$survey->foto}}">
                                     @endif
                                 </div>
                                 <div class="col-md-6 col-12">
