@@ -34,22 +34,24 @@
                                     <div id="create-mapid"></div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row mb-4">
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="foto">Foto</label>
-                                        <input type="file" class="form-control" id="foto" name="foto">
+                                        <input type="file" class="form-control" id="foto-source" name="foto"  onchange="previewImage()">
                                     </div>
+                                    <img  style="height:300px!important; margin-left:10%" id="foto-preview" class="img-thumbnail" src="{{ asset('storage/foto/default.png') }}" alt="">
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="youtube_id">Youtube ID</label>
                                         <div class="input-group mb-4">
-                                            <input value="" type="text" name="youtube_id" class="form-control" id="youtube_id" placeholder="Youtube ID">
+                                            <input type="text" name="youtube_id" class="form-control" id="youtube_id" placeholder="Youtube ID">
                                             <div class="input-group-prepend">
                                                 <a href="#" class="btn btn-info youtube-refresh">Refresh</a>
                                             </div>
                                         </div>
+                                        <iframe class="youtube-video" width="100%" class="mt-4" height="300" src="https://www.youtube.com/embed/null" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     </div>
                                 </div>
                             </div>

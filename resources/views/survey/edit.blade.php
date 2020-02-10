@@ -366,15 +366,6 @@
     <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ asset('js/admin.js') }}"></script>
     <script>
-        function previewImage() {
-        document.getElementById("foto-preview").style.display = "block";
-        var oFReader = new FileReader();
-        oFReader.readAsDataURL(document.getElementById("foto-source").files[0]);
-
-        oFReader.onload = function (oFREvent) {
-            document.getElementById("foto-preview").src = oFREvent.target.result;
-        };
-    };
         $('.datepicker').datepicker({
             format: 'yyyy-mm-dd'
         });</script>

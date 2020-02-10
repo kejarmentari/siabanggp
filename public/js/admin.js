@@ -1,3 +1,12 @@
+function previewImage() {
+    document.getElementById("foto-preview").style.display = "block";
+    var oFReader = new FileReader();
+    oFReader.readAsDataURL(document.getElementById("foto-source").files[0]);
+
+    oFReader.onload = function (oFREvent) {
+        document.getElementById("foto-preview").src = oFREvent.target.result;
+    };
+};
 $(function () {
 
     $('.survey-index-selections').slideUp();

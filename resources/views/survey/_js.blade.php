@@ -1,6 +1,8 @@
 <script>
+    
 $(function () {
     // init map view
+    
     var map = L.map('mapid').setView([$('table tbody tr.selected').data('lat'), $('table tbody tr.selected').data('long')], {{ config('leaflet.detail_zoom_level') }});
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
