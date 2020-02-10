@@ -23,9 +23,9 @@
                     </div>
                     <div class="col-md-4 col-12 mt-2">
                         @if ($survey->foto == null)
-                            <img class="img-thumbnail" src="http://127.0.0.1:8000/storage/foto/default.png" />
+                            <img class="img-thumbnail" src="https://via.placeholder.com/415x310.png?text=Tidak+Ada+Foto" />
                         @else
-                            <img class="img-thumbnail" src="http://127.0.0.1:8000/storage/foto/{{$survey->foto}}" />
+                            <img class="img-thumbnail" src="{{ asset('storage/foto/'. $survey->foto) }}" />
                         @endif
                     </div>
                     <div class="col-md-5 col-12 mt-2">
