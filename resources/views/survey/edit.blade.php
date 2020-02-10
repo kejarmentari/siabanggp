@@ -39,12 +39,12 @@
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="foto">Foto</label>
-                                        <input type="file" class="form-control" id="foto" name="foto">
+                                        <input id="foto-source" onchange="previewImage();" type="file" class="form-control" id="foto" name="foto">
                                     </div>
                                     @if ($survey->foto == null)
-                                        <img style="height:300px!important; margin-left:10%" class="img-thumbnail" src="http://127.0.0.1:8000/storage/foto/default.png" alt={{$survey->foto}}>
+                                        <img style="height:300px!important; margin-left:10%" id="foto-preview" class="img-thumbnail" src="http://127.0.0.1:8000/storage/foto/default.png" alt={{$survey->foto}}>
                                     @else
-                                        <img style="height:300px!important; margin-left:10%" class="img-thumbnail" src="http://127.0.0.1:8000/storage/foto/{{$survey->foto}} alt={{$survey->foto}}>
+                                        <img style="height:300px!important; margin-left:10%" id="foto-preview" class="img-thumbnail" src="http://127.0.0.1:8000/storage/foto/{{$survey->foto}} alt={{$survey->foto}}>
                                     @endif
                                 </div>
                                 <div class="col-md-6 col-12">
@@ -366,9 +366,19 @@
     <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ asset('js/admin.js') }}"></script>
     <script>
+        function previewImage() {
+        document.getElementById("foto-preview").style.display = "block";
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("foto-source").files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("foto-preview").src = oFREvent.target.result;
+        };
+    };
         $('.datepicker').datepicker({
             format: 'yyyy-mm-dd'
         });</script>
+        
     @endpush
 @endsection
 
