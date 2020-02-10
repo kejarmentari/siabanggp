@@ -9,24 +9,30 @@
                 <div class="card">
                     <div class="card-body">
                             <h3 class="mb-3">DATA UMUM</h3>
-                            <div class="form-group">
-                                <label for="kodeBangunan">Kode Bangunan</label>
-                                <input type="text" value={{$survey->kode}} name="kodeBangunan" class="form-control" id="kodeBangunan" placeholder="Kode Bangunan">
-                            </div>
                             <div class="row mb-3">
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label for="koordinatX">Posisi Koordinat X</label>
-                                        <input value={{$survey->latitude}} type="number" name="latitude" class="form-control" id="koordinatX" placeholder="Koordinat X">
+                                        <label for="kodeBangunan">Kode Bangunan</label>
+                                        <input type="text" value={{$survey->kode}} name="kodeBangunan" class="form-control" id="kodeBangunan" placeholder="Kode Bangunan">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="koordinatY">Posisi Koordinat Y</label>
-                                        <input value={{$survey->longitude}} type="number" name="longitude" class="form-control" id="koordinatY" placeholder="Koordinat Y">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6">
+                                            <div class="form-group">
+                                                <label for="koordinatX">Posisi Koordinat X</label>
+                                                <input value={{$survey->latitude}} type="number" name="latitude" class="form-control" id="koordinatX" placeholder="Koordinat X">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="form-group">
+                                                <label for="koordinatY">Posisi Koordinat Y</label>
+                                                <input value={{$survey->longitude}} type="number" name="longitude" class="form-control" id="koordinatY" placeholder="Koordinat Y">
+                                            </div>
+                                        </div>
                                     </div>
                                     <button type="button" class="btn btn-info" id="submitCoordinate">Cari Koordinat</button>
                                 </div>
                                 <div class="col-md-6 col-12">
-                                    <div id="create-mapid"></div>
+                                    <div id="create-mapid" class="mt-4"></div>
                                 </div>
                             </div>
                             <div class="row mb-2">
@@ -40,7 +46,12 @@
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="youtube_id">Youtube ID</label>
-                                        <input value={{$survey->youtube_id}} type="text" name="youtube_id" class="form-control" id="youtube_id" placeholder="Youtube ID">
+                                        <div class="input-group">
+                                            <input value={{$survey->youtube_id}} type="text" name="youtube_id" class="form-control" id="youtube_id" placeholder="Youtube ID">
+                                            <div class="input-group-prepend">
+                                                <a href="#" class="btn btn-info">Refresh</a>
+                                            </div>
+                                        </div>
                                         <iframe width="100%" class="mt-4" height="300" src="https://www.youtube.com/embed/{{$survey->youtube_id}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     </div>
                                 </div>
@@ -142,17 +153,23 @@
                                 <label for="ppk">Nama PPK</label>
                                 <input  value="{{$survey->ppk}}" name="ppk" type="text" class="form-control" id="ppk" placeholder="Nama PPK">
                             </div>
-                            <h3 class="mt-4">DATA TEKNIS</h3>
-                            <div class="form-group mb-4 w-50">
-                                <label for="tahun_anggaran">Tahun Anggaran</label>
-                                <input value="{{$survey->tahun_anggaran}}" name="tahun_anggaran" type="number" class="form-control" id="tahun_anggaran" placeholder="Tahun Anggaran">
-                            </div>
-                            <div class="form-group">
-                                <label for="cara_pelaksanaan">Cara Pelaksanaan</label>
-                                <select name="cara_pelaksanaan" class="form-control" id="cara_pelaksanaan">
-                                    <option {{$survey->cara_pelaksanaan == 0? 'selected': ''}} value="0">Swasta</option>
-                                    <option {{$survey->cara_pelaksanaan == 1? 'selected': ''}} value="1">Perusahaan</option>
-                                </select>
+                            <h3 class="mt-5 mb-3">DATA TEKNIS</h3>
+                            <div class="row">
+                                <div class="col-12 col-md-4">
+                                    <div class="form-group">
+                                        <label for="tahun_anggaran">Tahun Anggaran</label>
+                                        <input value="{{$survey->tahun_anggaran}}" name="tahun_anggaran" type="number" class="form-control" id="tahun_anggaran" placeholder="Tahun Anggaran">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-8">
+                                    <div class="form-group">
+                                        <label for="cara_pelaksanaan">Cara Pelaksanaan</label>
+                                        <select name="cara_pelaksanaan" class="form-control" id="cara_pelaksanaan">
+                                            <option {{$survey->cara_pelaksanaan == 0? 'selected': ''}} value="0">Swasta</option>
+                                            <option {{$survey->cara_pelaksanaan == 1? 'selected': ''}} value="1">Perusahaan</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                     </div>
                 </div>
@@ -174,9 +191,9 @@
                         @foreach ($survey_selections as $selection)
                             @if ($selection->selection->type == 1)
                             <div class="form-group">
-                                <label>{{$selection->selection->title}}</label>
+                                <label><b>{{ $loop->iteration }}. {{$selection->selection->title}}</b></label>
                                 <div class="row mt-1">
-                                    <div class="col-md-3 col-12">
+                                    <div class="col-md-4 col-12 pl-2-1">
                                         <label for="">Pilihan</label>
                                         <div class="d-flex mt-0">
                                             <div class="form-check form-check-inline">
@@ -193,10 +210,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-9 col-12">
+                                    <div class="col-md-8 col-12">
                                         <div class="form-group">
                                             <label>Deskripsi</label>
-                                            <input value="{{$selection->description}}"  type="text" class="form-control" placeholder="Deskripsi" name="selection_{{$selection->selection->id}}_desc">
+                                            <input value="{{$selection->description}}"  type="text" class="form-control" placeholder="(opsional)" name="selection_{{$selection->selection->id}}_desc">
                                         </div>
                                     </div>
                                 </div>
@@ -220,13 +237,14 @@
                         </div>
                     </div>
                     <div class="card-body p-2 survey-index-selections">
+                        @php $no = 1; @endphp
                         @foreach ($survey_selections as $selection)
                             @if ($selection->selection->type === 2)
                             <div class="form-group">
-                                <label>{{$selection->selection->title}}</label>
-                                
+                                <label><b>{{ $no++ }}. {{$selection->selection->title}}</b></label>
+
                                 <div class="row mt-1">
-                                    <div class="col-md-3 col-12">
+                                    <div class="col-md-4 col-12 pl-2-1">
                                         <label for="">Pilihan</label>
                                         <div class="d-flex mt-0">
                                             <div class="form-check form-check-inline">
@@ -243,10 +261,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-9 col-12">
+                                    <div class="col-md-8 col-12">
                                         <div class="form-group">
                                             <label>Deskripsi</label>
-                                            <input value="{{$selection->description}}"  type="text" class="form-control" placeholder="Deskripsi" name="selection_{{$selection->selection->id}}_desc">
+                                            <input value="{{$selection->description}}"  type="text" class="form-control" placeholder="(opsional)" name="selection_{{$selection->selection->id}}_desc">
                                         </div>
                                     </div>
                                 </div>
@@ -270,13 +288,14 @@
                         </div>
                     </div>
                     <div class="card-body p-2 survey-index-selections">
+                        @php $no = 1; @endphp
                         @foreach ($survey_selections as $selection)
                             @if ($selection->selection->type === 3)
                             <div class="form-group">
-                                <label>{{$selection->selection->title}}</label>
-                                
+                                <label><b>{{ $no++ }}. {{$selection->selection->title}}</b></label>
+
                                 <div class="row mt-1">
-                                    <div class="col-md-3 col-12">
+                                    <div class="col-md-4 col-12 pl-2-1">
                                         <label for="">Pilihan</label>
                                         <div class="d-flex mt-0">
                                             <div class="form-check form-check-inline">
@@ -293,10 +312,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-9 col-12">
+                                    <div class="col-md-8 col-12">
                                         <div class="form-group">
                                             <label>Deskripsi</label>
-                                            <input value="{{$selection->description}}"  type="text" class="form-control" placeholder="Deskripsi" name="selection_{{$selection->selection->id}}_desc">
+                                            <input value="{{$selection->description}}"  type="text" class="form-control" placeholder="(opsional)" name="selection_{{$selection->selection->id}}_desc">
                                         </div>
                                     </div>
                                 </div>
@@ -307,9 +326,9 @@
                 </div>
             </div>
             <div class="col-12 mt-4">
-                <button type="submit" class="btn btn-primary btn-block">Save</button>
+                <button type="submit" class="btn btn-lg btn-info btn-block">SIMPAN DATA SURVEY</button>
             </div>
-                
+
         </form>
     </div>
     @push('styles')
@@ -320,6 +339,19 @@
     <style>
         #create-mapid {
             height: 230px;
+        }
+
+        .form-check .form-check-label input[type="radio"]:checked + .input-helper:before {
+            background: -webkit-gradient(linear, left top, right top, from(#8acafd), to(#1a8ae3));
+            background: linear-gradient(to right, #1a8ae3, #8acafd);
+        }
+
+        .form-check .form-check-label input[type="radio"] + .input-helper:before {
+            border: solid #268fe5;
+        }
+
+        .pl-2-1 {
+            padding-left: 2.1rem;
         }
     </style>
     @endpush
