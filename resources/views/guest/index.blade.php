@@ -22,6 +22,7 @@
             border-radius: 5px;
             padding: 5px 5px;
             box-shadow: 0px 6px 12px rgba(0,0,0,.1);
+            height: 100vh!important;
         }
         .list-card:hover h5, .list-card .card  {
             transition: all ease-in-out .3s;

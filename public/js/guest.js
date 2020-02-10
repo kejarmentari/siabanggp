@@ -73,10 +73,10 @@ $(function () {
                                     </h5>
                                     <h6 class="mb-0">Klasifikasi Gedung</h6>
                                     <h5 class="font-weight-normal mb-3"><i class="mdi mdi-arrow-right mr-0 text-info"></i>
-                                        ${resp.surveys[survey].fungsi_gedung == null ? '-' : resp.surveys[survey].fungsi_gedung}</h5>
+                                        ${resp.surveys[survey].klasifikasi_gedung == null ? '-' : resp.surveys[survey].klasifikasi_gedung}</h5>
                                     <h6 class="mb-0">Lokasi Gedung</h6>
                                     <h5 class="font-weight-normal mb-3"><i class="mdi mdi-arrow-right mr-0 text-info"></i>
-                                        ${resp.surveys[survey].fungsi_gedung == null ? '-' : resp.surveys[survey].fungsi_gedung}</h5>
+                                        ${resp.surveys[survey].lokasi_gedung == null ? '-' : resp.surveys[survey].lokasi_gedung}</h5>
                                     <div class="detail" style="display:none">
                                         <h6 class="mb-1">Foto :</h6>
                                         <img class=" mb-3"  width="100%" src="${resp.surveys[survey].foto}" />
@@ -92,6 +92,7 @@ $(function () {
             $('.search-list-bangunan').devbridgeAutocomplete({
                 lookup: surveysData,
                 minChars: 1,
+                maxHeight: 'auto',
                 onSelect: function (suggestion) {
                     $('#listBangunanModal').modal('hide');
                     map.setView([parseFloat(suggestion.data.lat), parseFloat(suggestion.data.long)], 15);
