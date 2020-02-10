@@ -16,6 +16,7 @@ Route::post('/survey', 'SurveysController@store');
 Route::put('/survey/{id}', 'SurveysController@update');
 Route::get('/survey/{id}', 'SurveysController@show');
 Route::get('/survey/edit/{id}', 'SurveysController@edit');
+Route::delete('/survey/{id}', 'SurveysController@destroy');
 Route::get('/cetak/{id}', 'SurveysController@print');
 
 /*

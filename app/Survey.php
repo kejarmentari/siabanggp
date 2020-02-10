@@ -11,4 +11,9 @@ class Survey extends Model
         $date = explode("-", $value);
         return $date[2] . '/' . $date[1] . '/' . $date[0];
     }
+
+    public function selections()
+    {
+        return $this->belongsToMany(SurveySelection::class, 'survey_selections');
+    }
 }

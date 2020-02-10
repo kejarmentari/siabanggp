@@ -197,7 +197,11 @@ class SurveysController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $survey = Survey::findOrFail($id);
+        $survey->selections()->detach();
+        $survey->delete();
+
+        return back()->with('success', 'Berhasil menghapus data bangunan');
     }
 
     public function print($id)
