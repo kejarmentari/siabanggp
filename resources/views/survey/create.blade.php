@@ -18,16 +18,16 @@
                                         <div class="col-12 col-md-6">
                                             <div class="form-group">
                                                 <label for="koordinatY">Posisi Koordinat X</label>
-                                                <input type="text" name="longitude" class="form-control" id="koordinatY" placeholder="Koordinat Y">
+                                                <input type="text" name="latitude" class="form-control" id="koordinatY" placeholder="Koordinat Y">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <div class="form-group">
                                                 <label for="koordinatX">Posisi Koordinat Y</label>
-                                                <input type="text" name="latitude" class="form-control" id="koordinatX" placeholder="Koordinat X">
+                                                <input type="text" name="longitude" class="form-control" id="koordinatX" placeholder="Koordinat X">
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                     <button type="button" class="btn btn-info" id="submitCoordinate">Cari Koordinat</button>
                                 </div>
