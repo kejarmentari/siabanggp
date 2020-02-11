@@ -20,11 +20,11 @@ $(function () {
     })
     var createMap = L.map('create-mapid');
     if ($('input[name="latitude"]').val() == '' || $('input[name="longitude"]').val() == '') {
-        createMap.setView([-1.260325, 116.8219728], 16);
-        L.marker([-1.260325, 116.8219728], 16).addTo(createMap);
+        createMap.setView([-1.260325, 116.8219728], 25);
+        L.marker([-1.260325, 116.8219728], 25).addTo(createMap);
     } else {
-        createMap.setView([parseFloat($('input[name="latitude"]').val()), parseFloat($('input[name="longitude"]').val())], 16)
-        L.marker([parseFloat($('input[name="latitude"]').val()), parseFloat($('input[name="longitude"]').val())], 16).addTo(createMap);
+        createMap.setView([parseFloat($('input[name="latitude"]').val()), parseFloat($('input[name="longitude"]').val())], 25)
+        L.marker([parseFloat($('input[name="latitude"]').val()), parseFloat($('input[name="longitude"]').val())], 25).addTo(createMap);
     }
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
