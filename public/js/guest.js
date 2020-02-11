@@ -66,18 +66,18 @@ $(function () {
                                             <h4>${resp.surveys[survey].nama_gedung}</h4>
                                         </div>
                                     </div>
-                                    <h6 class="mb-1">Fungsi Gedung</h6>
-                                    <h5 class="font-weight-normal mb-3">
-                                        <i class="mdi mdi-arrow-right mr-0 text-info"></i>
-                                        ${resp.surveys[survey].fungsi_gedung == null ? '-' : resp.surveys[survey].fungsi_gedung}
-                                    </h5>
-                                    <h6 class="mb-1">Klasifikasi Gedung</h6>
-                                    <h5 class="font-weight-normal mb-3"><i class="mdi mdi-arrow-right mr-0 text-info"></i>
-                                        ${resp.surveys[survey].klasifikasi_gedung == null ? '-' : resp.surveys[survey].klasifikasi_gedung}</h5>
-                                    <h6 class="mb-1">Lokasi Gedung</h6>
-                                    <h5 class="font-weight-normal mb-3"><i class="mdi mdi-arrow-right mr-0 text-info"></i>
-                                        ${resp.surveys[survey].lokasi_gedung == null ? '-' : resp.surveys[survey].lokasi_gedung}</h5>
                                     <div class="detail" style="display:none">
+                                        <h6 class="mb-1">Fungsi Gedung</h6>
+                                        <h5 class="font-weight-normal mb-3">
+                                            <i class="mdi mdi-arrow-right mr-0 text-info"></i>
+                                            ${resp.surveys[survey].fungsi_gedung == null ? '-' : resp.surveys[survey].fungsi_gedung}
+                                        </h5>
+                                        <h6 class="mb-1">Klasifikasi Gedung</h6>
+                                        <h5 class="font-weight-normal mb-3"><i class="mdi mdi-arrow-right mr-0 text-info"></i>
+                                            ${resp.surveys[survey].klasifikasi_gedung == null ? '-' : resp.surveys[survey].klasifikasi_gedung}</h5>
+                                        <h6 class="mb-1">Lokasi Gedung</h6>
+                                        <h5 class="font-weight-normal mb-3"><i class="mdi mdi-arrow-right mr-0 text-info"></i>
+                                            ${resp.surveys[survey].lokasi_gedung == null ? '-' : resp.surveys[survey].lokasi_gedung}</h5>
                                         <h6 class="mb-1">Foto :</h6>
                                         ${resp.surveys[survey].foto == null ? '<h5 class="font-weight-normal mb-3 text-muted"><i class="mdi mdi-arrow-right mr-0 text-info"></i>Foto tidak tersedia</h5>' : '<img class=" mb-3"  width="100%" src="./storage/foto/'+ resp.surveys[survey].foto+ '" />'}
 
