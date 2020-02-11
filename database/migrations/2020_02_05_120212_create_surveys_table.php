@@ -25,10 +25,10 @@ class CreateSurveysTable extends Migration
             $table->string('fungsi_gedung')->nullable();
             $table->string('klasifikasi_gedung')->nullable();
             $table->string('lokasi_gedung')->nullable();
-            $table->integer('jumlah_lantai')->default(0);
-            $table->double('ketinggian')->default(0);
-            $table->double('luas_lantai')->default(0);
-            $table->double('luas_lantai_dasar')->default(0);
+            $table->integer('jumlah_lantai')->default(0)->nullable();
+            $table->double('ketinggian')->default(0)->nullable();
+            $table->double('luas_lantai')->default(0)->nullable();
+            $table->double('luas_lantai_dasar')->default(0)->nullable();
             $table->double('luas_tanah')->default(0);
             $table->integer('surat_bukti')->default(1)->comment('1 = sertifikat, 2 = imtn, 3 = bukti lainnya');
             $table->string('pptk')->nullable();

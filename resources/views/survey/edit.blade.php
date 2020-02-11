@@ -202,13 +202,13 @@
                                         <div class="d-flex mt-0">
                                             <div class="form-check form-check-inline">
                                                 <label class="form-check-label">
-                                                <input {{$selection->choice == 1? 'checked': ''}} value="1" type="radio" class="form-check-input" name="selection_{{$selection->selection->id}}">
+                                                <input checked  value="1" type="radio" class="form-check-input" name="selection_{{$selection->selection->id}}">
                                                 Sesuai
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <label class="form-check-label">
-                                                <input {{$selection->choice == 0? 'checked': ''}} value="0" type="radio" class="form-check-input" name="selection_{{$selection->selection->id}}">
+                                                <input   value="0" type="radio" class="form-check-input" name="selection_{{$selection->selection->id}}">
                                                 Tidak Sesuai
                                                 </label>
                                             </div>
@@ -217,7 +217,7 @@
                                     <div class="col-md-8 col-12">
                                         <div class="form-group">
                                             <label>Deskripsi</label>
-                                            <input value="{{$selection->description}}"  type="text" class="form-control" placeholder="(opsional)" name="selection_{{$selection->selection->id}}_desc">
+                                            <input value="0"  type="text" class="form-control" placeholder="(opsional)" name="selection_{{$selection->selection->id}}_desc">
                                         </div>
                                     </div>
                                 </div>

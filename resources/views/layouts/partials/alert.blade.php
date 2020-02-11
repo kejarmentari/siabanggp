@@ -18,7 +18,7 @@
 
 @if ($errors->any())
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <span class="alert-inner--text"><strong>ERROR!</strong> Terjadi Kesalahan</span>
+    <span class="alert-inner--text"><strong>ERROR!</strong>Terjadi Kesalahan</span>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>

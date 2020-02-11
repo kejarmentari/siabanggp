@@ -53,9 +53,12 @@ class SurveysController extends Controller
     public function store(Request $request)
     {
         $selections = Selection::all();
-        $surveys = Survey::orderBy('kode')->get(['id', 'kode', 'tanggal', 'nama_gedung', 'latitude', 'longitude']);
-
-
+        $this->validate($request, [
+            'kodeBangunan' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required',
+            'nama_gedung' => 'required',
+        ]);
         //Handle File Upload
         if ($request->hasFile('foto')) {
             // Get filename with the extension
@@ -70,7 +73,9 @@ class SurveysController extends Controller
             $filenameToStore = 'noImage.jpg';
         }
         //Upload Image
-        $path = $request->file('foto')->storeAs('public/foto', $filenameToStore);
+        if ($request->hasFile('foto')) {
+            $path = $request->file('foto')->storeAs('public/foto', $filenameToStore);
+        }
         $survey = new Survey;
         $survey->user_id = auth()->user()->id;
         $survey->kode = $request->kodeBangunan;
@@ -103,7 +108,7 @@ class SurveysController extends Controller
             $survey_selection->description = $request['selection_' . $selection->id . '_desc'];
             $survey_selection->save();
         }
-        return view('survey.index', compact('surveys'))->with('success', 'Berhasil menambah data survey');
+        return redirect('/gedung')->with('success', 'Data Survey Telah Ditambahkan');
     }
 
     /**
@@ -142,7 +147,6 @@ class SurveysController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $surveys = Survey::orderBy('kode')->get(['id', 'kode', 'tanggal', 'nama_gedung', 'latitude', 'longitude']);
         if ($request->hasFile('foto')) {
             // Get filename with the extension
             $filenameWithExtension  = $request->file('foto')->getClientOriginalName();
@@ -187,7 +191,7 @@ class SurveysController extends Controller
             $s_selection->description = $request['selection_' . $selection->selection->id . '_desc'];
             $s_selection->save();
         }
-        return view('survey.index', compact('surveys'))->with('success', 'Berhasil menambah data survey');
+        return redirect('/gedung')->with('success', 'Data Survey Telah Diubah');
     }
     /**
      * Remove the specified resource from storage.
