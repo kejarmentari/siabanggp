@@ -1,9 +1,9 @@
 <script>
-    
+
 $(function () {
     // init map view
-    
-    var map = L.map('mapid').setView([$('table tbody tr.selected').data('lat'), $('table tbody tr.selected').data('long')], 25);
+
+    var map = L.map('mapid').setView([$('table tbody tr.selected').data('lat'), $('table tbody tr.selected').data('long')], 30);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
@@ -38,8 +38,8 @@ $(function () {
         $(this).addClass('selected');
         $('.selected-lat').html($(this).data('lat'));
         $('.selected-long').html($(this).data('long'));
-        
-        map.setView([$(this).data('lat'), $(this).data('long')], 25);
+
+        map.setView([$(this).data('lat'), $(this).data('long')], 30);
         markerGroup.clearLayers();
         L.marker([$(this).data('lat'), $(this).data('long')]).addTo(markerGroup);
     })

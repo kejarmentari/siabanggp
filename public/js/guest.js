@@ -2,7 +2,7 @@ $(function () {
     const url = '/images/'
     const icon = L.icon({
         iconUrl: url + 'marker-icon.png',
-        iconSize: [25, 42], // size of the icon
+        iconSize: [30, 42], // size of the icon
         shadowSize: [50, 64], // size of the shadow
         iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
         shadowAnchor: [4, 62],  // the same for the shadow
@@ -23,7 +23,7 @@ $(function () {
     }).addTo(map);
     map.on('zoomend', function () {
         const currentZoom = map.getZoom();
-        if (currentZoom < 15) {
+        if (currentZoom < 30) {
             map.removeLayer(icon);
             map.addLayer(icon2);
         }
@@ -96,7 +96,7 @@ $(function () {
                 maxHeight: 'auto',
                 onSelect: function (suggestion) {
                     $('#listBangunanModal').modal('hide');
-                    map.setView([parseFloat(suggestion.data.lat), parseFloat(suggestion.data.long)], 15);
+                    map.setView([parseFloat(suggestion.data.lat), parseFloat(suggestion.data.long)], 30);
                     $('.search-list-bangunan').val('');
                 },
                 noSuggestionNotice: 'Sorry, no matching results',
@@ -111,7 +111,7 @@ $(function () {
     $(document).on("click", '.list-card', function (e) {
         e.preventDefault();
         $('#listBangunanModal').modal('hide');
-        map.setView([parseFloat($(this).data('lat')), parseFloat($(this).data('long'))], 15);
+        map.setView([parseFloat($(this).data('lat')), parseFloat($(this).data('long'))], 30);
     })
 
 })
