@@ -3,7 +3,7 @@
 $(function () {
     // init map view
     
-    var map = L.map('mapid').setView([$('table tbody tr.selected').data('lat'), $('table tbody tr.selected').data('long')], {{ config('leaflet.detail_zoom_level') }});
+    var map = L.map('mapid').setView([$('table tbody tr.selected').data('lat'), $('table tbody tr.selected').data('long')], 25);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
@@ -39,7 +39,7 @@ $(function () {
         $('.selected-lat').html($(this).data('lat'));
         $('.selected-long').html($(this).data('long'));
         
-        map.setView([$(this).data('lat'), $(this).data('long')], {{ config('leaflet.detail_zoom_level') }});
+        map.setView([$(this).data('lat'), $(this).data('long')], 25);
         markerGroup.clearLayers();
         L.marker([$(this).data('lat'), $(this).data('long')]).addTo(markerGroup);
     })
