@@ -12229,7 +12229,7 @@ code {
   .input-group-prepend .input-group-text {
     border-color: #ebedf2;
     padding: 0.94rem 0.75rem;
-    color: #c9c8c8; }
+    color: #666; }
 
 .form-control {
   border: 1px solid #ebedf2;

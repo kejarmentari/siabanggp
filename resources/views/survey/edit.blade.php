@@ -61,8 +61,14 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="tanggal">Tanggal</label>
-                                <input value="{{$survey->tanggal}}" name="tanggal" class="form-control datepicker" id="tanggal">
+                                <label for="tanggal_indo">Tanggal</label>
+                                <div class="input-group input-group-alternative">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="mdi mdi-calendar-text"></i></span>
+                                    </div>
+                                    <input class="form-control datepicker-id" placeholder="Tanggal" name="tanggal_indo" type="text" value="{{ old('tanggal_indo', $survey->tanggal_indo) }}" autocomplete="off" id="tanggal_indo">
+                                    <input type="hidden" id="hidden_date" name="tanggal" value="{{ old('tanggal', $survey->tanggal) }}">
+                                </div>
                             </div>
                             <div class="form-group mt-4">
                                 <label for="pemilik_gedung">Nama Pemilik Bangunan</label>
@@ -339,7 +345,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
     integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
     crossorigin=""/>
-    <script src="{{ asset('css/bootstrap-datepicker.min.css') }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker.min.css') }}">
     <style>
         #create-mapid {
             height: 230px;
@@ -360,16 +366,17 @@
     </style>
     @endpush
     @push('scripts')
+    {{-- leaflet --}}
     <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
     integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
     crossorigin=""></script>
+    {{-- datepicker --}}
     <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-datepicker.id.min.js') }}"></script>
+    {{-- moment --}}
+    <script src="{{ asset('js/moment.min.js') }}"></script>
+    {{-- custom admin --}}
     <script src="{{ asset('js/admin.js') }}"></script>
-    <script>
-        $('.datepicker').datepicker({
-            format: 'yyyy-mm-dd'
-        });</script>
-
     @endpush
 @endsection
 

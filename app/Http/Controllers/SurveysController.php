@@ -41,7 +41,9 @@ class SurveysController extends Controller
     public function create()
     {
         $selections = Selection::all();
-        return view('survey.create', compact('selections'));
+        $date = to_indo_day(date('N')) .', '. to_indo_date(date('Y-m-d'), 1);
+
+        return view('survey.create', compact('selections', 'date'));
     }
 
     /**

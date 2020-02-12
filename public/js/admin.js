@@ -42,4 +42,15 @@ $(function () {
         e.preventDefault();
         $('.youtube-video').attr('src', 'https://www.youtube.com/embed/' + $('input[name="youtube_id"]').val());
     })
+
+    $('.datepicker-id').datepicker({
+        format: 'DD, dd MM yyyy',
+        language: 'id',
+        autoclose: true,
+        todayBtn: true,
+        todayHighlight: true
+    }).on('changeDate', function(e) {
+        const convertDate = moment(e.date);
+        $('#hidden_date').val(convertDate.format('Y-M-D'));
+    });
 })

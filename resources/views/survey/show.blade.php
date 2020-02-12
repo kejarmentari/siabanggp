@@ -16,7 +16,7 @@
                         <h6>Tanggal</h6>
                     </div>
                     <div class="col-md-9 col-12 mt-2">
-                        <h6 class="font-weight-normal">: {{$survey->tanggal}}</h6>
+                        <h6 class="font-weight-normal">: {{$survey->tanggal_indo}}</h6>
                     </div>
                     <div class="col-md-3 col-12 mt-2">
                         <h6>Foto / Video</h6>
