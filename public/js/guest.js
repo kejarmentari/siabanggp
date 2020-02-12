@@ -23,7 +23,7 @@ $(function () {
     }).addTo(map);
     map.on('zoomend', function () {
         const currentZoom = map.getZoom();
-        if (currentZoom < 15) {
+        if (currentZoom < 30) {
             map.removeLayer(icon);
             map.addLayer(icon2);
         }
@@ -66,20 +66,20 @@ $(function () {
                                             <h4>${resp.surveys[survey].nama_gedung}</h4>
                                         </div>
                                     </div>
-                                    <h6 class="mb-1">Fungsi Gedung</h6>
-                                    <h5 class="font-weight-normal mb-3">
-                                        <i class="mdi mdi-arrow-right mr-0 text-info"></i>
-                                        ${resp.surveys[survey].fungsi_gedung == null ? '-' : resp.surveys[survey].fungsi_gedung}
-                                    </h5>
-                                    <h6 class="mb-1">Klasifikasi Gedung</h6>
-                                    <h5 class="font-weight-normal mb-3"><i class="mdi mdi-arrow-right mr-0 text-info"></i>
-                                        ${resp.surveys[survey].klasifikasi_gedung == null ? '-' : resp.surveys[survey].klasifikasi_gedung}</h5>
-                                    <h6 class="mb-1">Lokasi Gedung</h6>
-                                    <h5 class="font-weight-normal mb-3"><i class="mdi mdi-arrow-right mr-0 text-info"></i>
-                                        ${resp.surveys[survey].lokasi_gedung == null ? '-' : resp.surveys[survey].lokasi_gedung}</h5>
                                     <div class="detail" style="display:none">
+                                        <h6 class="mb-1">Fungsi Gedung</h6>
+                                        <h5 class="font-weight-normal mb-3">
+                                            <i class="mdi mdi-arrow-right mr-0 text-info"></i>
+                                            ${resp.surveys[survey].fungsi_gedung == null ? '-' : resp.surveys[survey].fungsi_gedung}
+                                        </h5>
+                                        <h6 class="mb-1">Klasifikasi Gedung</h6>
+                                        <h5 class="font-weight-normal mb-3"><i class="mdi mdi-arrow-right mr-0 text-info"></i>
+                                            ${resp.surveys[survey].klasifikasi_gedung == null ? '-' : resp.surveys[survey].klasifikasi_gedung}</h5>
+                                        <h6 class="mb-1">Lokasi Gedung</h6>
+                                        <h5 class="font-weight-normal mb-3"><i class="mdi mdi-arrow-right mr-0 text-info"></i>
+                                            ${resp.surveys[survey].lokasi_gedung == null ? '-' : resp.surveys[survey].lokasi_gedung}</h5>
                                         <h6 class="mb-1">Foto :</h6>
-                                        ${resp.surveys[survey].foto == null ? '<h5 class="font-weight-normal mb-3 text-muted"><i class="mdi mdi-arrow-right mr-0 text-info"></i>Foto tidak tersedia</h5>' : '<img class=" mb-3"  width="100%" src="http://127.0.0.1:8000/storage/foto/${resp.surveys[survey].foto}" />'}
+                                        ${resp.surveys[survey].foto == null ? '<h5 class="font-weight-normal mb-3 text-muted"><i class="mdi mdi-arrow-right mr-0 text-info"></i>Foto tidak tersedia</h5>' : '<img class=" mb-3"  width="100%" src="./storage/foto/' + resp.surveys[survey].foto + '" />'}
 
                                         <h6 class="mb-1">Video :</h6>
                                         ${resp.surveys[survey].youtube_id == null ? '<h5 class="font-weight-normal mb-4 text-muted"><i class="mdi mdi-arrow-right mr-0 text-info"></i>Video tidak tersedia</h5>' : '<iframe width="100%" height="185" src="https://www.youtube.com/embed/' + resp.surveys[survey].youtube_id + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'}
@@ -96,7 +96,7 @@ $(function () {
                 maxHeight: 'auto',
                 onSelect: function (suggestion) {
                     $('#listBangunanModal').modal('hide');
-                    map.setView([parseFloat(suggestion.data.lat), parseFloat(suggestion.data.long)], 15);
+                    map.setView([parseFloat(suggestion.data.lat), parseFloat(suggestion.data.long)], 30);
                     $('.search-list-bangunan').val('');
                 },
                 noSuggestionNotice: 'Sorry, no matching results',
@@ -111,7 +111,7 @@ $(function () {
     $(document).on("click", '.list-card', function (e) {
         e.preventDefault();
         $('#listBangunanModal').modal('hide');
-        map.setView([parseFloat($(this).data('lat')), parseFloat($(this).data('long'))], 15);
+        map.setView([parseFloat($(this).data('lat')), parseFloat($(this).data('long'))], 30);
     })
 
 })

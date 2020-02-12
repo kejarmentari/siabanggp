@@ -19,13 +19,13 @@
                                         <div class="col-12 col-md-6">
                                             <div class="form-group">
                                                 <label for="koordinatX">Posisi Koordinat X</label>
-                                                <input value={{$survey->latitude}} type="number" name="latitude" class="form-control" id="koordinatX" placeholder="Koordinat X">
+                                                <input value={{$survey->latitude}} type="text" name="latitude" class="form-control" id="koordinatX" placeholder="Koordinat X">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <div class="form-group">
                                                 <label for="koordinatY">Posisi Koordinat Y</label>
-                                                <input value={{$survey->longitude}} type="number" name="longitude" class="form-control" id="koordinatY" placeholder="Koordinat Y">
+                                                <input value={{$survey->longitude}} type="text" name="longitude" class="form-control" id="koordinatY" placeholder="Koordinat Y">
                                             </div>
                                         </div>
                                     </div>
