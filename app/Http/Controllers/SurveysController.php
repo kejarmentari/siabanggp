@@ -87,6 +87,7 @@ class SurveysController extends Controller
         $survey->nama_gedung = $request->nama_gedung;
         $survey->fungsi_gedung = $request->fungsi_gedung;
         $survey->klasifikasi_gedung = $request->klasifikasi_gedung;
+        $survey->lokasi_gedung = $request->lokasi_gedung;
         $survey->jumlah_lantai = $request->jumlah_lantai;
         $survey->ketinggian = $request->ketinggian;
         $survey->luas_lantai = $request->luas_lantai;
@@ -169,6 +170,7 @@ class SurveysController extends Controller
         $survey->nama_gedung = $request->nama_gedung;
         $survey->fungsi_gedung = $request->fungsi_gedung;
         $survey->klasifikasi_gedung = $request->klasifikasi_gedung;
+        $survey->lokasi_gedung = $request->lokasi_gedung;
         $survey->jumlah_lantai = $request->jumlah_lantai;
         $survey->ketinggian = $request->ketinggian;
         $survey->luas_lantai = $request->luas_lantai;
